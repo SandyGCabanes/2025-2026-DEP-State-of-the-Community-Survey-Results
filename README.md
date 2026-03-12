@@ -20,6 +20,7 @@ This year, we added new concerns on AI, shift schedule, job satisfaction, and on
 	- Excel for initial pivot tables
 	- Python for final report
 - Final report free and open-source [here](link_to_html)
+  	- Pages created with the help of Claude Sonnet 4.6 free-tier
 	- Tableau version [here](link to Tableau public)
 - Embedded gif:  
 	- gif created using my [python code](https://github.com/SandyGCabanes/mp4_to_gif)
@@ -35,4 +36,4 @@ This year, we added new concerns on AI, shift schedule, job satisfaction, and on
 ## Dashboard format:  HTML Webpage, Tableau
 
 	- gif embedded in Tableau housed here [github](https://github.com/SandyGCabanes/2024survey_homepage)
-- Website creation:  Gamma.io app [Website here] (https://gamma.app/docs/DEP-SOTC-Survey-2024-o7wjaq3yjcz23yq?mode=doc)
+
