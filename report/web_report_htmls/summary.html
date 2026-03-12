@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executive Summary — DEP Annual Survey 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #1B2A4A;
+      --blue:   #2A7ABF;
+      --teal:   #2A9D8F;
+      --grey:   #E3E9E9;
+      --white:  #FFFFFF;
+      --text:   #111111;
+      --muted:  #4B5563;
+      --light:  #9CA3AF;
+      --card-border: rgba(42,122,191,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', Calibri, sans-serif;
+      background: #F4F7F9;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 9999;
+      background: rgba(27,42,74,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 56px;
+      font-family: 'DM Sans', Calibri, sans-serif;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.05rem; font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-links {
+      display: flex; gap: 0.25rem; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.4rem 0.75rem; border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--navy);
+      padding: 3.5rem 3rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(42,122,191,0.18) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 100% 100% at 0% 50%, black 30%, transparent 100%);
+      pointer-events: none;
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto;
+      position: relative;
+    }
+    .header-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--teal);
+      border: 1px solid rgba(42,157,143,0.4);
+      background: rgba(42,157,143,0.08);
+      padding: 0.28rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 760px;
+    }
+    .page-header p {
+      margin-top: 0.75rem;
+      font-size: 0.95rem; font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 640px;
+      line-height: 1.65;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── SECTION BLOCK ── */
+    .summary-section {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-header:hover { background: rgba(42,122,191,0.03); }
+
+    .section-num {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-num.blue   { background: rgba(42,122,191,0.12); color: #1a5f99; }
+    .section-num.teal   { background: rgba(42,157,143,0.12); color: #1f7a6e; }
+    .section-num.gold   { background: rgba(245,158,11,0.12);  color: #b45309; }
+    .section-num.green  { background: rgba(34,197,94,0.10);   color: #16a34a; }
+    .section-num.purple { background: rgba(109,40,217,0.10);  color: #6d28d9; }
+    .section-num.rose   { background: rgba(244,63,94,0.10);   color: #be123c; }
+    .section-num.slate  { background: rgba(100,116,139,0.12); color: #475569; }
+
+    .section-header-text { flex: 1; }
+    .section-title {
+      font-size: 1rem; font-weight: 600; color: var(--text);
+    }
+    .section-subtitle {
+      font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem;
+    }
+
+    .section-link {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--blue); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      white-space: nowrap;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(42,122,191,0.25);
+      border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .section-link:hover {
+      background: rgba(42,122,191,0.06);
+      border-color: rgba(42,122,191,0.5);
+    }
+    .section-link svg { transition: transform 0.2s; }
+    .section-link:hover svg { transform: translateX(2px); }
+
+    /* ── PLACEHOLDER BODY ── */
+    .section-body {
+      padding: 1.75rem 2rem;
+    }
+    .placeholder-block {
+      background: #F4F7F9;
+      border: 2px dashed rgba(42,122,191,0.2);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--light);
+    }
+    .placeholder-block .ph-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--blue); opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+    .placeholder-block .ph-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.1rem; color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .placeholder-block .ph-desc {
+      font-size: 0.85rem; color: var(--light);
+      max-width: 480px; margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      margin-top: 0;
+      padding: 16px 48px;
+      background: #1B3A6B;
+      font-size: 12px;
+      color: #A8DADC;
+      display: flex; align-items: center; gap: 12px;
+      flex-wrap: wrap;
+    }
+    .page-footer a {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #A8DADC; text-decoration: none; font-weight: bold;
+    }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .page-header { padding: 2.5rem 1.25rem 2rem; }
+      .content-wrapper { padding: 2rem 1rem 4rem; }
+      .section-header { padding: 1.25rem; }
+      .section-body { padding: 1.25rem; }
+      .page-footer { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../index.html">DEP Survey 2026</a>
+    <ul class="nav-links">
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="compensation_combined_smallmultiples.html">Compensation</a></li>
+      <li><a href="tools_tech.html">Tools &amp; Tech</a></li>
+      <li><a href="learning_community.html">Learning &amp; Community</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="header-inner">
+      <div class="header-eyebrow">Executive Summary</div>
+      <h1>Placeholder for Summary of DEP Survey 2025-2026 by SGCabanes</h1>
+      <p>A high-level overview of the key findings across all four sections of the DEP Annual Survey Report. Full interactive charts are available in each section.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrapper">
+
+    <!-- Section 1 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num blue">1</div>
+        <div class="section-header-text">
+          <div class="section-title">About Us — Who We Are</div>
+          <div class="section-subtitle">Demographics, geography, career stage, and education profile of DEP respondents.</div>
+        </div>
+        <a class="section-link" href="about_us.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml1.html</div>
+          <div class="ph-title">About Us Summary</div>
+          <div class="ph-desc">Key highlights: total respondents, top countries, age distribution, career stage breakdown, and satisfaction score.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num gold">2</div>
+        <div class="section-header-text">
+          <div class="section-title">Compensation — Salary Benchmarks</div>
+          <div class="section-subtitle">Salary ranges by role, seniority, industry, and work arrangement.</div>
+        </div>
+        <a class="section-link" href="compensation_combined_smallmultiples.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml2.html</div>
+          <div class="ph-title">Compensation Summary</div>
+          <div class="ph-desc">Key highlights: median salaries by data role, compensation spread by seniority, and top-paying industries.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num teal">3</div>
+        <div class="section-header-text">
+          <div class="section-title">Tools &amp; Tech — The Data Stack</div>
+          <div class="section-subtitle">Cloud platforms, coding languages, hardware, AI tools, and the modern data stack.</div>
+        </div>
+        <a class="section-link" href="tools_tech.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml3.html</div>
+          <div class="ph-title">Tools &amp; Tech Summary</div>
+          <div class="ph-desc">Key highlights: most-used cloud platforms, top programming languages, AI tool adoption, and data stack preferences.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num green">4</div>
+        <div class="section-header-text">
+          <div class="section-title">Learning &amp; Community — Growth &amp; Engagement</div>
+          <div class="section-subtitle">Self-study habits, events, DEP initiatives, volunteering, and open feedback.</div>
+        </div>
+        <a class="section-link" href="learning_community.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml4.html</div>
+          <div class="ph-title">Learning &amp; Community Summary</div>
+          <div class="ph-desc">Key highlights: top learning platforms, event attendance, DEP initiative participation, and community sentiment.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num purple">5</div>
+        <div class="section-header-text">
+          <div class="section-title">Section 5 — Placeholder Title</div>
+          <div class="section-subtitle">Brief description of what this section covers.</div>
+        </div>
+        <a class="section-link" href="subhtml5.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml5.html</div>
+          <div class="ph-title">Section 5 Summary</div>
+          <div class="ph-desc">Summary content and key highlights for Section 5 go here.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num rose">6</div>
+        <div class="section-header-text">
+          <div class="section-title">Section 6 — Placeholder Title</div>
+          <div class="section-subtitle">Brief description of what this section covers.</div>
+        </div>
+        <a class="section-link" href="subhtml6.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml6.html</div>
+          <div class="ph-title">Section 6 Summary</div>
+          <div class="ph-desc">Summary content and key highlights for Section 6 go here.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="summary-section">
+      <div class="section-header">
+        <div class="section-num slate">7</div>
+        <div class="section-header-text">
+          <div class="section-title">Section 7 — Placeholder Title</div>
+          <div class="section-subtitle">Brief description of what this section covers.</div>
+        </div>
+        <a class="section-link" href="subhtml7.html">
+          View Section
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="section-body">
+        <div class="placeholder-block">
+          <div class="ph-label">Placeholder → subhtml7.html</div>
+          <div class="ph-title">Section 7 Summary</div>
+          <div class="ph-desc">Summary content and key highlights for Section 7 go here.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end content-wrapper -->
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <a href="https://www.linkedin.com/in/sandygcabanes" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+           viewBox="0 0 24 24" fill="#A8DADC">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853
+                 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9
+                 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337
+                 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063
+                 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0
+                 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24
+                 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+      </svg>
+      Sandy Cabanes
+    </a>
+    <span>·</span>
+    <span>© 2025 Data Engineering Pilipinas State of the Community Survey</span>
+  </footer>
+
+</body>
+</html>
