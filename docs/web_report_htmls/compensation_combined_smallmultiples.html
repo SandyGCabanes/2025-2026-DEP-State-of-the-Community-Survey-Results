@@ -161,11 +161,6 @@
      </a>
     </span>
 
-  <script>
-  fetch("https://script.google.com/macros/s/AKfycbwm39maDOpISu1hpTjfMhFs8Z6oth_Mh487-yyGuRelNxAIObWfOEAqsU9hnDL0vB6eww/exec?page=compensation&ref=" 
-    + encodeURIComponent(document.referrer))
-  .catch(function() {});  // silent fail — never breaks the page
-  </script>
   </footer>
 
   <script>
@@ -200,8 +195,14 @@
     });
   });
   </script>
+  <script>
+  fetch("https://script.google.com/macros/s/AKfycbwm39maDOpISu1hpTjfMhFs8Z6oth_Mh487-yyGuRelNxAIObWfOEAqsU9hnDL0vB6eww/exec?page=about_us&ref=" 
+    + encodeURIComponent(document.referrer))
+  .catch(function() {});  // silent fail — never breaks the page
+  </script>
 </body>
 
 </html>
+
 
 
