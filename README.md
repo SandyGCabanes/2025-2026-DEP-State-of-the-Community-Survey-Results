@@ -1,7 +1,13 @@
 # 2025-2026-DEP-State-of-the-Community-Survey-Results
 ## HTML, Python, Excel, Tableau(to follow)
 
-This [report](link) contains the results of the online survey conducted among members of the Data Engineering Pilipinas Facebook group.
+Start [here](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/index.html) to navigate to the main page, or jump to the pages below for the results of the online survey conducted among members of the Data Engineering Pilipinas Facebook group.
+
+- [About Us](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/about_us.html)
+- [Compensation](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/compensation_combined_smallmultiples.html)
+- [Tools & Tech](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/tools_tech.html)
+- [Learning & Community](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/learning_community.html)
+- [Executive Summary](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/summary.html)
 
 ## Objective:
 To get continued understanding of the community composition and needs, and compare with last year’s survey.   
