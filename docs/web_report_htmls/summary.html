@@ -1,459 +1,1475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Executive Summary — DEP Annual Survey 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy:   #1B2A4A;
-      --blue:   #2A7ABF;
-      --teal:   #2A9D8F;
-      --grey:   #E3E9E9;
-      --white:  #FFFFFF;
-      --text:   #111111;
-      --muted:  #4B5563;
-      --light:  #9CA3AF;
-      --card-border: rgba(42,122,191,0.15);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Career Journey in Philippine Data — DEP Annual Survey 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────────── */
+:root {
+  --navy:        #1a2744;
+  --navy-deep:   #111b33;
+  --blue:        #2563a8;
+  --blue-lt:     #3b82c4;
+  --teal:        #1a5c35;
+  --teal-lt:     #22753f;
+  --amber:       #92400e;
+  --purple:      #4c1d6e;
+  --purple-lt:   #6d28a0;
+  --ink:         #1a1a2e;
+  --ink-soft:    #3d3d5c;
+  --muted:       #6b7280;
+  --rule:        #e2e6ef;
+  --bg:          #f8f9fc;
+  --bg-card:     #ffffff;
+  --bg-sidebar:  #111b33;
+  --sidebar-w:   280px;
+  --content-max: 860px;
+  --serif:       'DM Serif Display', Georgia, serif;
+  --sans:        'DM Sans', system-ui, sans-serif;
+}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+/* ── RESET ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--bg);
+  display: flex;
+  min-height: 100vh;
+}
 
-    body {
-      font-family: 'DM Sans', Calibri, sans-serif;
-      background: #F4F7F9;
-      color: var(--text);
-      min-height: 100vh;
-    }
+/* ── SIDEBAR ────────────────────────────────────────────────────────────── */
+#sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--bg-sidebar);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #2e3f66 transparent;
+  flex-shrink: 0;
+  z-index: 100;
+}
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: #2e3f66; border-radius: 2px; }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 9999;
-      background: rgba(27,42,74,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 56px;
-      font-family: 'DM Sans', Calibri, sans-serif;
-    }
-    .nav-logo {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 1.05rem; font-weight: 400;
-      letter-spacing: 0.02em;
-      color: var(--white); text-decoration: none;
-    }
-    .nav-links {
-      display: flex; gap: 0.25rem; list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.4rem 0.75rem; border-radius: 4px;
-      transition: color 0.2s, background 0.2s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--white);
-      background: rgba(255,255,255,0.08);
-    }
+.sb-logo {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #1e2f52;
+}
+.sb-logo-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #5b7aad;
+  display: block;
+  margin-bottom: 4px;
+}
+.sb-logo-title {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: #c8d4ec;
+  line-height: 1.4;
+}
 
-    /* ── PAGE HEADER ── */
-    .page-header {
-      background: var(--navy);
-      padding: 3.5rem 3rem 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-header::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(42,122,191,0.18) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: radial-gradient(ellipse 100% 100% at 0% 50%, black 30%, transparent 100%);
-      pointer-events: none;
-    }
-    .header-inner {
-      max-width: 1100px; margin: 0 auto;
-      position: relative;
-    }
-    .header-eyebrow {
-      display: inline-block;
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--teal);
-      border: 1px solid rgba(42,157,143,0.4);
-      background: rgba(42,157,143,0.08);
-      padding: 0.28rem 0.85rem;
-      border-radius: 100px;
-      margin-bottom: 1rem;
-    }
-    .page-header h1 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      color: var(--white);
-      line-height: 1.2;
-      max-width: 760px;
-    }
-    .page-header p {
-      margin-top: 0.75rem;
-      font-size: 0.95rem; font-weight: 300;
-      color: rgba(255,255,255,0.55);
-      max-width: 640px;
-      line-height: 1.65;
-    }
+.sb-nav { padding: 10px 0 24px; }
 
-    /* ── MAIN CONTENT ── */
-    .content-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
-    }
+/* Part headers */
+.sb-part {
+  margin-top: 6px;
+}
+.sb-part-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 18px 9px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: #e8edf8;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background .15s;
+}
+.sb-part-btn:hover { background: #1a2e52; }
+.sb-part-btn.active { background: #1e3560; }
 
-    /* ── SECTION BLOCK ── */
-    .summary-section {
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.07);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-    }
+.sb-part-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.part-1 .sb-part-dot { background: #4a90d9; }
+.part-2 .sb-part-dot { background: #34a76b; }
+.part-3 .sb-part-dot { background: #5b9bd5; }
+.part-4 .sb-part-dot { background: #a78bdf; }
+.part-close .sb-part-dot { background: #e8b86d; }
 
-    .section-header {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      cursor: pointer;
-      user-select: none;
-    }
-    .section-header:hover { background: rgba(42,122,191,0.03); }
+.sb-part-arrow {
+  margin-left: auto;
+  font-size: 9px;
+  color: #5b7aad;
+  transition: transform .2s;
+}
+.sb-part-btn.open .sb-part-arrow { transform: rotate(90deg); }
 
-    .section-num {
-      width: 32px; height: 32px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; font-weight: 700;
-      flex-shrink: 0;
-    }
-    .section-num.blue   { background: rgba(42,122,191,0.12); color: #1a5f99; }
-    .section-num.teal   { background: rgba(42,157,143,0.12); color: #1f7a6e; }
-    .section-num.gold   { background: rgba(245,158,11,0.12);  color: #b45309; }
-    .section-num.green  { background: rgba(34,197,94,0.10);   color: #16a34a; }
-    .section-num.purple { background: rgba(109,40,217,0.10);  color: #6d28d9; }
-    .section-num.rose   { background: rgba(244,63,94,0.10);   color: #be123c; }
-    .section-num.slate  { background: rgba(100,116,139,0.12); color: #475569; }
+/* Section level */
+.sb-sections { display: none; }
+.sb-sections.open { display: block; }
 
-    .section-header-text { flex: 1; }
-    .section-title {
-      font-size: 1rem; font-weight: 600; color: var(--text);
-    }
-    .section-subtitle {
-      font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem;
-    }
+.sb-section-btn {
+  display: block;
+  width: 100%;
+  padding: 6px 16px 6px 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: #8fa8d0;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color .15s, background .15s;
+}
+.sb-section-btn:hover { color: #c8d4ec; background: #162342; }
+.sb-section-btn.active { color: #7ec8f0; background: #162342; }
 
-    .section-link {
-      font-size: 0.78rem; font-weight: 600;
-      color: var(--blue); text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      white-space: nowrap;
-      padding: 0.4rem 0.9rem;
-      border: 1px solid rgba(42,122,191,0.25);
-      border-radius: 6px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .section-link:hover {
-      background: rgba(42,122,191,0.06);
-      border-color: rgba(42,122,191,0.5);
-    }
-    .section-link svg { transition: transform 0.2s; }
-    .section-link:hover svg { transform: translateX(2px); }
+/* Sub-section level */
+.sb-subsections { display: none; padding-left: 10px; }
+.sb-subsections.open { display: block; }
 
-    /* ── PLACEHOLDER BODY ── */
-    .section-body {
-      padding: 1.75rem 2rem;
-    }
-    .placeholder-block {
-      background: #F4F7F9;
-      border: 2px dashed rgba(42,122,191,0.2);
-      border-radius: 8px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      color: var(--light);
-    }
-    .placeholder-block .ph-label {
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--blue); opacity: 0.6;
-      margin-bottom: 0.5rem;
-    }
-    .placeholder-block .ph-title {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: 1.1rem; color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .placeholder-block .ph-desc {
-      font-size: 0.85rem; color: var(--light);
-      max-width: 480px; margin: 0 auto;
-      line-height: 1.6;
-    }
+.sb-subsection-btn {
+  display: block;
+  width: 100%;
+  padding: 4px 12px 4px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: #5b7aad;
+  font-family: var(--sans);
+  font-size: 11px;
+  line-height: 1.4;
+  border-left: 1px solid #1e3560;
+  transition: color .15s, border-color .15s;
+}
+.sb-subsection-btn:hover { color: #8fa8d0; border-left-color: #3b5a9a; }
+.sb-subsection-btn.active { color: #7ec8f0; border-left-color: #4a90d9; }
 
-    /* ── FOOTER ── */
-    .page-footer {
-      margin-top: 0;
-      padding: 16px 48px;
-      background: #1B3A6B;
-      font-size: 12px;
-      color: #A8DADC;
-      display: flex; align-items: center; gap: 12px;
-      flex-wrap: wrap;
-    }
-    .page-footer a {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: #A8DADC; text-decoration: none; font-weight: bold;
-    }
-    .page-footer a:hover { text-decoration: underline; }
+/* Sub-sub level (questions) */
+.sb-questions { display: none; padding-left: 8px; }
+.sb-questions.open { display: block; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      nav { padding: 0 1rem; }
-      .nav-links { display: none; }
-      .page-header { padding: 2.5rem 1.25rem 2rem; }
-      .content-wrapper { padding: 2rem 1rem 4rem; }
-      .section-header { padding: 1.25rem; }
-      .section-body { padding: 1.25rem; }
-      .page-footer { padding: 16px 20px; }
-    }
-  </style>
+.sb-q-btn {
+  display: block;
+  width: 100%;
+  padding: 3px 10px 3px 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: #465a82;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  line-height: 1.35;
+  font-style: italic;
+  border-left: 1px solid #1a2e52;
+  transition: color .15s, border-color .15s;
+}
+.sb-q-btn:hover { color: #7ec8f0; border-left-color: #2563a8; }
+.sb-q-btn.active { color: #9dd4f7; border-left-color: #3b82c4; }
+
+/* Toggle arrow for section/subsection */
+.has-children { display: flex; align-items: flex-start; gap: 6px; }
+.has-children .sb-sec-arrow {
+  font-size: 8px; color: #3a5280; margin-top: 3px;
+  flex-shrink: 0; transition: transform .2s;
+}
+.has-children.open .sb-sec-arrow { transform: rotate(90deg); }
+
+/* ── MAIN CONTENT ────────────────────────────────────────────────────────── */
+#main {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0 80px;
+}
+
+/* Top bar */
+#topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(248,249,252,.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.topbar-title {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.topbar-meta {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Hero */
+#hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, #1a2f5c 60%, #162444 100%);
+  padding: 56px 48px 48px;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(37,99,168,.25) 0%, transparent 70%);
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #5b9bd5;
+  margin-bottom: 14px;
+  position: relative;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 1.15;
+  color: #e8edf8;
+  margin-bottom: 14px;
+  position: relative;
+  max-width: 680px;
+}
+.hero-sub {
+  font-size: 14px;
+  color: #8fa8d0;
+  line-height: 1.6;
+  max-width: 560px;
+  position: relative;
+  margin-bottom: 24px;
+}
+.hero-stat-row {
+  display: flex;
+  gap: 32px;
+  position: relative;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-stat-n {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: #7ec8f0;
+}
+.hero-stat-label {
+  font-size: 11px;
+  color: #5b7aad;
+  font-weight: 500;
+}
+
+/* Content wrapper */
+.content-wrap {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── PART HEADER ─────────────────────────────────────────────────────────── */
+.part-header {
+  margin: 48px 0 0;
+  padding: 28px 32px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.part-header.p1 { background: linear-gradient(135deg, var(--navy) 0%, #1e3a6e 100%); }
+.part-header.p2 { background: linear-gradient(135deg, var(--teal) 0%, #1a4f2e 100%); }
+.part-header.p3 { background: linear-gradient(135deg, #1a3a6e 0%, var(--blue) 100%); }
+.part-header.p4 { background: linear-gradient(135deg, var(--purple) 0%, #3b1460 100%); }
+.part-header.close { background: linear-gradient(135deg, #3a2a0e 0%, var(--amber) 100%); }
+
+.part-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 6px;
+}
+.part-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.part-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  font-style: italic;
+}
+
+/* ── SECTION ─────────────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-top: none;
+  padding: 32px 36px;
+}
+.section:last-of-type {
+  border-radius: 0 0 4px 4px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 21px;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.25;
+  padding-top: 8px;
+}
+.section-title:not(:first-child) { margin-top: 32px; border-top: 1px solid var(--rule); padding-top: 28px; }
+
+/* Question callout */
+.question-callout {
+  background: #f0f4fc;
+  border-left: 3px solid var(--blue);
+  padding: 12px 16px;
+  margin: 10px 0 20px;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--navy);
+  line-height: 1.55;
+}
+.question-callout.teal  { border-left-color: var(--teal);   background: #f0f7f3; color: var(--teal); }
+.question-callout.blue  { border-left-color: var(--blue);   background: #f0f4fc; color: var(--navy); }
+.question-callout.purple{ border-left-color: var(--purple); background: #f5f0fc; color: var(--purple); }
+.question-callout.amber { border-left-color: var(--amber);  background: #fef7ee; color: var(--amber); }
+
+/* Subsection */
+.subsection { margin-top: 24px; }
+.subsection-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.subsection-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* Body text */
+p { margin-bottom: 12px; font-size: 14.5px; color: var(--ink-soft); }
+p:last-child { margin-bottom: 0; }
+
+/* Stat card */
+.stat-card {
+  display: flex;
+  align-items: stretch;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 16px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,.07);
+}
+.stat-card-num {
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  font-family: var(--serif);
+  font-size: 30px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.stat-card-num.navy   { background: var(--navy); }
+.stat-card-num.blue   { background: var(--blue); }
+.stat-card-num.teal   { background: var(--teal); }
+.stat-card-num.purple { background: var(--purple); }
+.stat-card-num.amber  { background: var(--amber); }
+.stat-card-body {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  background: #f4f7fd;
+  border: 1px solid var(--rule);
+  border-left: none;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+/* Insight block */
+.insight {
+  border-left: 3px solid var(--blue);
+  padding: 10px 14px;
+  margin: 14px 0;
+  background: #f7f9fe;
+  border-radius: 0 4px 4px 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.insight.teal   { border-left-color: var(--teal);   background: #f2f8f4; }
+.insight.amber  { border-left-color: var(--amber);  background: #fef8f2; }
+.insight.purple { border-left-color: var(--purple); background: #f7f2fd; }
+.insight-label  { font-weight: 700; }
+.insight.blue   .insight-label { color: var(--blue); }
+.insight.teal   .insight-label { color: var(--teal); }
+.insight.amber  .insight-label { color: var(--amber); }
+.insight.purple .insight-label { color: var(--purple); }
+
+/* Bullet list */
+ul.dep-list { padding-left: 0; list-style: none; margin: 10px 0 14px; }
+ul.dep-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid #f0f2f7;
+  line-height: 1.55;
+}
+ul.dep-list li:last-child { border-bottom: none; }
+ul.dep-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 10px;
+  top: 8px;
+}
+ul.dep-list li.teal::before   { color: var(--teal); }
+ul.dep-list li.amber::before  { color: var(--amber); }
+ul.dep-list li.purple::before { color: var(--purple); }
+
+/* Track box for DA/DE */
+.track-box {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+.track-box-header {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.track-box-header.da { background: var(--blue); }
+.track-box-header.de { background: var(--teal); }
+.track-box-body { padding: 4px 0; background: var(--bg-card); }
+.track-box-body li { font-size: 13.5px; }
+
+/* Closing arc */
+.arc-block {
+  background: linear-gradient(135deg, #f8f9fc 0%, #edf1fa 100%);
+  border: 1px solid #dce4f0;
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.arc-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.arc-body p { margin-bottom: 14px; }
+
+/* Intro section */
+.intro-section {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 28px 36px;
+  margin-top: 32px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 28px 48px;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  margin-top: 48px;
+  letter-spacing: .04em;
+}
+
+/* ── PROGRESS BAR ─────────────────────────────────────────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-w);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), #7ec8f0);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 200;
+  transition: transform .1s linear;
+}
+
+/* ── MOBILE TOGGLE ────────────────────────────────────────────────────────── */
+#sb-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 300;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── ACTIVE NAV HIGHLIGHT ─────────────────────────────────────────────────── */
+.section[data-active="true"] { }
+
+/* ── ANIMATIONS ───────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stat-card, .insight, .track-box {
+  animation: fadeUp .3s ease both;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  #sidebar {
+    position: fixed;
+    left: calc(-1 * var(--sidebar-w));
+    transition: left .25s ease;
+    height: 100%;
+    top: 0;
+  }
+  #sidebar.open { left: 0; }
+  #sb-toggle { display: flex; }
+  #progress-bar { left: 0; }
+  .content-wrap { padding: 0 20px; }
+  #hero { padding: 36px 20px 32px; }
+  #topbar { padding: 10px 20px; }
+  .hero-title { font-size: 30px; }
+  .section { padding: 24px 20px; }
+  .stat-card-num { min-width: 80px; font-size: 24px; }
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="../index.html">DEP Survey 2026</a>
-    <ul class="nav-links">
-      <li><a href="about_us.html">About Us</a></li>
-      <li><a href="compensation_combined_smallmultiples.html">Compensation</a></li>
-      <li><a href="tools_tech.html">Tools &amp; Tech</a></li>
-      <li><a href="learning_community.html">Learning &amp; Community</a></li>
-    </ul>
-  </nav>
+<div id="progress-bar"></div>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <div class="header-inner">
-      <div class="header-eyebrow">Executive Summary</div>
-      <h1>Placeholder for Summary of DEP Survey 2025-2026 by SGCabanes</h1>
-      <p>A high-level overview of the key findings across all four sections of the DEP Annual Survey Report. Full interactive charts are available in each section.</p>
+<!-- ── SIDEBAR ─────────────────────────────────────────────────────────── -->
+<nav id="sidebar" aria-label="Page navigation">
+  <div class="sb-logo">
+    <span class="sb-logo-label">DEP Annual Survey 2026</span>
+    <span class="sb-logo-title">The Career Journey in Philippine Data</span>
+  </div>
+
+  <div class="sb-nav">
+
+    <!-- INTRO -->
+    <div class="sb-part">
+      <button class="sb-part-btn" onclick="navTo('intro'); highlightPart(this)">
+        <span class="sb-part-dot" style="background:#8fa8d0"></span>
+        Introduction
+      </button>
+    </div>
+
+    <!-- PART 1 -->
+    <div class="sb-part part-1">
+      <button class="sb-part-btn" onclick="togglePart(this)">
+        <span class="sb-part-dot"></span>
+        Part 1 · Students &amp; Job Seekers
+        <span class="sb-part-arrow">▶</span>
+      </button>
+      <div class="sb-sections">
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-roles')">
+          <span class="sb-sec-arrow">▶</span> The Three Roles
+        </button>
+        <div class="sb-subsections" id="sec-roles-sub">
+          <button class="sb-subsection-btn has-children" onclick="toggleSection(this, 'sub-roles-detail')">
+            <span class="sb-sec-arrow">▶</span> DA vs DE vs SE profiles
+          </button>
+          <div class="sb-questions" id="sub-roles-detail-sub">
+            <button class="sb-q-btn" onclick="navTo('roles-da')">DA — multinational workhorse</button>
+            <button class="sb-q-btn" onclick="navTo('roles-de')">DE — highest full-time rate</button>
+            <button class="sb-q-btn" onclick="navTo('roles-se')">SE — most side-gig friendly</button>
+          </div>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-industries')">
+          <span class="sb-sec-arrow">▶</span> Which Industries Hire?
+        </button>
+        <div class="sb-subsections" id="sec-industries-sub">
+          <button class="sb-subsection-btn" onclick="navTo('ind-itbpo')">IT / BPO / Business Services</button>
+          <button class="sb-subsection-btn" onclick="navTo('ind-banking')">Banking &amp; Finance</button>
+          <button class="sb-subsection-btn" onclick="navTo('ind-early')">Early-entry sectors</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-channels')">
+          <span class="sb-sec-arrow">▶</span> Job Hunting Channels
+        </button>
+        <div class="sb-subsections" id="sec-channels-sub">
+          <button class="sb-subsection-btn" onclick="navTo('ch-linkedin')">LinkedIn</button>
+          <button class="sb-subsection-btn" onclick="navTo('ch-indeed')">Indeed &amp; Jobstreet</button>
+          <button class="sb-subsection-btn" onclick="navTo('ch-online')">OnlineJobs / Upwork</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-creds')">
+          <span class="sb-sec-arrow">▶</span> What Credentials Matter?
+        </button>
+        <div class="sb-subsections" id="sec-creds-sub">
+          <button class="sb-subsection-btn" onclick="navTo('cred-cs')">CS vs non-CS degrees</button>
+          <button class="sb-subsection-btn" onclick="navTo('cred-role')">Degree by role</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-salary1')">
+          <span class="sb-sec-arrow">▶</span> Entry-Level Salary
+        </button>
+        <div class="sb-subsections" id="sec-salary1-sub">
+          <button class="sb-subsection-btn" onclick="navTo('sal-bands')">₱15k–₱35k reality</button>
+          <button class="sb-subsection-btn" onclick="navTo('sal-employer')">Employer type impact</button>
+          <button class="sb-subsection-btn" onclick="navTo('sal-tenure')">Tenure signal</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PART 2 -->
+    <div class="sb-part part-2">
+      <button class="sb-part-btn" onclick="togglePart(this)">
+        <span class="sb-part-dot"></span>
+        Part 2 · Career Shifters
+        <span class="sb-part-arrow">▶</span>
+      </button>
+      <div class="sb-sections">
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-skills')">
+          <span class="sb-sec-arrow">▶</span> Core Skills to Learn
+        </button>
+        <div class="sb-subsections" id="sec-skills-sub">
+          <button class="sb-subsection-btn has-children" onclick="toggleSection(this, 'sub-da-track')">
+            <span class="sb-sec-arrow">▶</span> DA track
+          </button>
+          <div class="sb-questions" id="sub-da-track-sub">
+            <button class="sb-q-btn" onclick="navTo('da-sql')">SQL first</button>
+            <button class="sb-q-btn" onclick="navTo('da-excel')">Excel &amp; Power BI</button>
+            <button class="sb-q-btn" onclick="navTo('da-dax')">DAX &amp; Power Platform</button>
+            <button class="sb-q-btn" onclick="navTo('da-python')">When to add Python</button>
+          </div>
+          <button class="sb-subsection-btn has-children" onclick="toggleSection(this, 'sub-de-track')">
+            <span class="sb-sec-arrow">▶</span> DE track
+          </button>
+          <div class="sb-questions" id="sub-de-track-sub">
+            <button class="sb-q-btn" onclick="navTo('de-python')">Python &amp; SQL</button>
+            <button class="sb-q-btn" onclick="navTo('de-airflow')">Airflow &amp; dbt</button>
+            <button class="sb-q-btn" onclick="navTo('de-cloud-tools')">Databricks &amp; Snowflake</button>
+          </div>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-cloud')">
+          <span class="sb-sec-arrow">▶</span> Cloud Portfolio
+        </button>
+        <div class="sb-subsections" id="sec-cloud-sub">
+          <button class="sb-subsection-btn" onclick="navTo('cloud-aws')">AWS for DE</button>
+          <button class="sb-subsection-btn" onclick="navTo('cloud-gcp')">GCP as starting point</button>
+          <button class="sb-subsection-btn" onclick="navTo('cloud-cert')">Certifications as proof</button>
+        </div>
+
+        <button class="sb-section-btn" onclick="navTo('sec-hardware')">Hardware</button>
+        <button class="sb-section-btn" onclick="navTo('sec-content')">Content Creation as Bridge</button>
+
+      </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div class="sb-part part-3">
+      <button class="sb-part-btn" onclick="togglePart(this)">
+        <span class="sb-part-dot"></span>
+        Part 3 · Mid-Career Professionals
+        <span class="sb-part-arrow">▶</span>
+      </button>
+      <div class="sb-sections">
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-sal-ladder')">
+          <span class="sb-sec-arrow">▶</span> Salary Ladder
+        </button>
+        <div class="sb-subsections" id="sec-sal-ladder-sub">
+          <button class="sb-subsection-btn" onclick="navTo('sal-3034')">Breakthrough at 30–34</button>
+          <button class="sb-subsection-btn" onclick="navTo('sal-employer-type')">Employer type lever</button>
+          <button class="sb-subsection-btn" onclick="navTo('sal-remote-premium')">The remote premium</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-tenure')">
+          <span class="sb-sec-arrow">▶</span> How Long to Stay?
+        </button>
+        <div class="sb-subsections" id="sec-tenure-sub">
+          <button class="sb-subsection-btn" onclick="navTo('ten-1-2')">1–2 year window</button>
+          <button class="sb-subsection-btn" onclick="navTo('ten-senior')">Senior professionals stay longer</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-sidegig')">
+          <span class="sb-sec-arrow">▶</span> Side Gig Prevalence
+        </button>
+        <div class="sb-subsections" id="sec-sidegig-sub">
+          <button class="sb-subsection-btn" onclick="navTo('sg-se')">SE leads at 35.7%</button>
+          <button class="sb-subsection-btn" onclick="navTo('sg-remote')">Remote work enabler</button>
+          <button class="sb-subsection-btn" onclick="navTo('sg-dade')">DA/DE mostly full-in</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-masters')">
+          <span class="sb-sec-arrow">▶</span> Is a Master's Worth It?
+        </button>
+        <div class="sb-subsections" id="sec-masters-sub">
+          <button class="sb-subsection-btn" onclick="navTo('msc-da')">DA — yes, for multinationals</button>
+          <button class="sb-subsection-btn" onclick="navTo('msc-de')">DE — no significant signal</button>
+          <button class="sb-subsection-btn" onclick="navTo('msc-age')">Prevalence by age</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-satisfaction')">
+          <span class="sb-sec-arrow">▶</span> Job Satisfaction
+        </button>
+        <div class="sb-subsections" id="sec-satisfaction-sub">
+          <button class="sb-subsection-btn" onclick="navTo('sat-top')">Who scores 10?</button>
+          <button class="sb-subsection-btn" onclick="navTo('sat-setup')">Work setup impact</button>
+          <button class="sb-subsection-btn" onclick="navTo('sat-shifters')">Shifters score lowest</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-tools-pro')">
+          <span class="sb-sec-arrow">▶</span> Professional Tool Stack
+        </button>
+        <div class="sb-subsections" id="sec-tools-pro-sub">
+          <button class="sb-subsection-btn" onclick="navTo('tools-collab')">Collaboration tools</button>
+          <button class="sb-subsection-btn" onclick="navTo('tools-learning')">Learning platforms</button>
+          <button class="sb-subsection-btn" onclick="navTo('tools-ai')">AI tool adoption</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PART 4 -->
+    <div class="sb-part part-4">
+      <button class="sb-part-btn" onclick="togglePart(this)">
+        <span class="sb-part-dot"></span>
+        Part 4 · Community Leaders
+        <span class="sb-part-arrow">▶</span>
+      </button>
+      <div class="sb-sections">
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-dep-engage')">
+          <span class="sb-sec-arrow">▶</span> DEP Engagement Today
+        </button>
+        <div class="sb-subsections" id="sec-dep-engage-sub">
+          <button class="sb-subsection-btn" onclick="navTo('dep-scholarship')">DataCamp scholarship reach</button>
+          <button class="sb-subsection-btn" onclick="navTo('dep-discord')">Discord &amp; DataMasters</button>
+          <button class="sb-subsection-btn" onclick="navTo('dep-funnel-gap')">The funnel gap</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-datacamp')">
+          <span class="sb-sec-arrow">▶</span> DataCamp Usage Patterns
+        </button>
+        <div class="sb-subsections" id="sec-datacamp-sub">
+          <button class="sb-subsection-btn" onclick="navTo('dc-who')">Who actually uses it</button>
+          <button class="sb-subsection-btn" onclick="navTo('dc-gender')">Gender gap</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-platforms')">
+          <span class="sb-sec-arrow">▶</span> Adjacent Platforms
+        </button>
+        <div class="sb-subsections" id="sec-platforms-sub">
+          <button class="sb-subsection-btn" onclick="navTo('plat-learning')">Learning platforms</button>
+          <button class="sb-subsection-btn" onclick="navTo('plat-youtube')">YouTube — the underrated giant</button>
+          <button class="sb-subsection-btn" onclick="navTo('plat-communities')">Adjacent communities</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-university')">
+          <span class="sb-sec-arrow">▶</span> Self-Paced University: Viable?
+        </button>
+        <div class="sb-subsections" id="sec-university-sub">
+          <button class="sb-subsection-btn" onclick="navTo('uni-demand')">Demand signals (87–86%)</button>
+          <button class="sb-subsection-btn" onclick="navTo('uni-format')">Format that works</button>
+          <button class="sb-subsection-btn" onclick="navTo('uni-career-adv')">Career advancement framing</button>
+        </div>
+
+        <button class="sb-section-btn has-children" onclick="toggleSection(this, 'sec-volunteers')">
+          <span class="sb-sec-arrow">▶</span> Volunteer Capacity
+        </button>
+        <div class="sb-subsections" id="sec-volunteers-sub">
+          <button class="sb-subsection-btn" onclick="navTo('vol-teach')">Who will teach</button>
+          <button class="sb-subsection-btn" onclick="navTo('vol-mentor')">Mentor supply</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="sb-part part-close">
+      <button class="sb-part-btn" onclick="navTo('closing')">
+        <span class="sb-part-dot"></span>
+        Closing · The Career Arc
+      </button>
+    </div>
+
+  </div><!-- /sb-nav -->
+</nav>
+
+<!-- ── MAIN ────────────────────────────────────────────────────────────── -->
+<main id="main">
+
+  <div id="topbar">
+    <a href="../index.html" style="
+      font-size: 1.05rem; font-weight: 700; letter-spacing: 0.02em;
+      color: #1a2744; text-decoration: none;
+    ">DEP Survey 2026</a>
+    <span class="topbar-meta">All figures at 95% confidence · n = 1,732</span>
+  </div>
+
+  <!-- Hero -->
+  <div id="hero">
+    <div class="hero-eyebrow">Data Engineering Pilipinas · Annual Survey 2026</div>
+    <h1 class="hero-title">The Career Journey in Philippine Data</h1>
+    <p class="hero-sub">What the data tells students, job seekers, career shifters, mid-career professionals, and community leaders — based on significant findings only.</p>
+    <div class="hero-stat-row">
+      <div class="hero-stat"><span class="hero-stat-n">1,732</span><span class="hero-stat-label">Respondents</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">95%</span><span class="hero-stat-label">Confidence level</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">4</span><span class="hero-stat-label">Audience lenses</span></div>
+      <div class="hero-stat"><span class="hero-stat-n">103</span><span class="hero-stat-label">Verified figures</span></div>
     </div>
   </div>
 
-  <!-- CONTENT -->
-  <div class="content-wrapper">
+  <div class="content-wrap">
 
-    <!-- Section 1 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num blue">1</div>
-        <div class="section-header-text">
-          <div class="section-title">About Us — Who We Are</div>
-          <div class="section-subtitle">Demographics, geography, career stage, and education profile of DEP respondents.</div>
-        </div>
-        <a class="section-link" href="about_us.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+    <!-- INTRO -->
+    <div id="intro" class="intro-section">
+      <h2 class="section-title" style="border:none;padding-top:0;margin-top:0">Introduction</h2>
+      <p>The DEP Annual Survey 2026 reached 1,732 respondents across every stage of the Philippine data career — students finishing degrees, job seekers waiting for their first break, career shifters pivoting from other fields, and professionals pushing for the next level.</p>
+      <p>This report organises the significant findings into a single career journey narrative, written for four audiences: those trying to break in, those making a pivot, those climbing further, and the community leaders trying to build something that helps all of them.</p>
+      <div class="insight blue"><span class="insight-label">Methodology: </span>Every figure cited passed a pairwise z-test at 95% confidence. Cells with n &lt; 30 are suppressed. These are not averages — they are signals.</div>
+    </div>
+
+    <!-- ══ PART 1 ══ -->
+    <div id="part1">
+      <div class="part-header p1">
+        <div class="part-tag">Part 1</div>
+        <div class="part-title">For Students &amp; Job Seekers</div>
+        <div class="part-sub">Breaking In: Roles, Industries, Job Hunting, and Salary</div>
       </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml1.html</div>
-          <div class="ph-title">About Us Summary</div>
-          <div class="ph-desc">Key highlights: total respondents, top countries, age distribution, career stage breakdown, and satisfaction score.</div>
+
+      <div class="section">
+        <div class="question-callout blue">"What are the data roles out there? What will increase my odds of getting hired? What salary ranges should I expect?"</div>
+
+        <!-- Roles -->
+        <h3 class="section-title" id="sec-roles-anchor">The Three Roles You Are Competing For</h3>
+        <p>The dominant employed roles are Data Analysis &amp; Insights (DA), Data Engineering (DE), and Software Engineering (SE). Each has a distinct profile worth understanding before you apply.</p>
+
+        <div id="roles-da" class="subsection">
+          <div class="subsection-title">DA · Data Analysis &amp; Insights</div>
+          <div class="stat-card"><div class="stat-card-num blue">41.1%</div><div class="stat-card-body">of DA practitioners work at a multinational employer — significantly higher than DE or SE. DA is the multinational's workhorse.</div></div>
+          <ul class="dep-list">
+            <li>Skews female: 26.6% of DA practitioners are female vs. lower in DE</li>
+            <li>Heavily full-time: 79.9% employed full-time, significantly higher than career shifters</li>
+            <li>Second-largest employer: Banking/Finance/Insurance at 18.1%, significantly above SE</li>
+          </ul>
         </div>
+
+        <div id="roles-de" class="subsection">
+          <div class="subsection-title">DE · Data Engineering</div>
+          <div class="stat-card"><div class="stat-card-num navy">90.0%</div><div class="stat-card-body">of DE practitioners are full-time — the highest full-time rate of any role. If you want DE, aim for full-time positions, not contracts.</div></div>
+          <ul class="dep-list">
+            <li>Male-dominated: 14.1% of male respondents are in DE vs. lower for females</li>
+            <li>Concentrates at foreign and multinational employers in the higher salary bands</li>
+          </ul>
+        </div>
+
+        <div id="roles-se" class="subsection">
+          <div class="subsection-title">SE · Software Engineering</div>
+          <div class="stat-card"><div class="stat-card-num blue">35.7%</div><div class="stat-card-body">of SE practitioners had a side gig in the past 12 months — significantly higher than DA (20.6%) and DE (18.8%). SE is the most side-gig-friendly role.</div></div>
+          <ul class="dep-list">
+            <li>Highest freelance rate among the three roles</li>
+            <li>Highest daily AI usage for work: 70.4%, significantly higher than DA</li>
+          </ul>
+        </div>
+
+        <!-- Industries -->
+        <h3 class="section-title" id="sec-industries-anchor">Which Industries Have the Most Jobs?</h3>
+
+        <div id="ind-itbpo">
+          <div class="stat-card"><div class="stat-card-num navy">44.0%</div><div class="stat-card-body">of multinational-employed respondents work in IT/BPO/Business Services — significantly higher than local employers. This is the dominant sector.</div></div>
+        </div>
+
+        <div id="ind-banking" style="margin-top:12px">
+          <p>Banking, Finance &amp; Insurance is the second-strongest sector — 18.1% for DA roles and 18.7% for hybrid workers, both significantly higher than their comparators.</p>
+        </div>
+
+        <div id="ind-early" class="subsection">
+          <div class="subsection-title">Early-Entry Sectors for 20–24 Year Olds</div>
+          <ul class="dep-list">
+            <li id="ind-gov"><b>Government:</b> 8.0% of 20–24-year-olds, significantly higher than mid-career groups. Active early-entry pipeline, especially for onsite roles.</li>
+            <li id="ind-mfg"><b>Manufacturing:</b> 8.8% of 20–24-year-olds and 6.6% of career shifters — both significantly higher than the 25–34 age bands.</li>
+            <li id="ind-research"><b>Research:</b> 5.6% of 20–24-year-olds and 5.7% of PT/Contract/Freelance workers. Academic and research institutions hire early.</li>
+          </ul>
+        </div>
+
+        <!-- Channels -->
+        <h3 class="section-title" id="sec-channels-anchor">How People Actually Find Jobs</h3>
+
+        <div id="ch-linkedin">
+          <div class="stat-card"><div class="stat-card-num blue">74.6%</div><div class="stat-card-body">of professionals use LinkedIn — significantly higher than career shifters. Among DE practitioners it reaches 80.5%. LinkedIn is not optional.</div></div>
+        </div>
+
+        <div id="ch-indeed" style="margin-top:12px">
+          <div class="stat-card"><div class="stat-card-num navy">47.4%</div><div class="stat-card-body">of 20–24-year-olds use Indeed — significantly higher than older age groups. The primary complement to LinkedIn at entry level.</div></div>
+          <ul class="dep-list" style="margin-top:10px">
+            <li><b>Jobstreet:</b> 42.7% for local employers and 35.5% for multinationals — both significantly higher than foreign employers. Use it for domestic companies.</li>
+          </ul>
+        </div>
+
+        <div id="ch-online" class="subsection">
+          <div class="subsection-title">For Foreign / Remote Work</div>
+          <ul class="dep-list">
+            <li><b>OnlineJobs.ph:</b> 15.1% for foreign-employer respondents — significantly elevated. The gateway to foreign remote roles.</li>
+            <li><b>Upwork:</b> 10.3% among PT/Contract/Freelance — the freelance platform path to foreign engagements.</li>
+            <li><b>Referrals:</b> 16.4% among PT/Contract/Freelance workers. Your network matters most when working independently.</li>
+          </ul>
+        </div>
+
+        <!-- Credentials -->
+        <h3 class="section-title" id="sec-creds-anchor">What Credentials Actually Matter?</h3>
+        <p>A Bachelor's degree is the minimum bar — 88.4% of professionals and 89.2% of job seekers hold one, both significantly higher than students still studying.</p>
+
+        <div id="cred-cs" class="subsection">
+          <div class="subsection-title">CS vs Non-CS Backgrounds</div>
+          <ul class="dep-list">
+            <li><b>BS Computer Science</b> dominates DE, SE, and students (37.3%). Males show significantly higher CS degree rates than females.</li>
+            <li><b>BS ECE</b> is significantly more common among career shifters (24.4% vs. professionals) — frequent launch pad for the data pivot.</li>
+            <li><b>Non-CS degree:</b> 58.4% of career shifters have no CS or data degree — significantly more than any other group. It is the norm, not the exception.</li>
+          </ul>
+        </div>
+
+        <div id="cred-role" class="subsection">
+          <div class="subsection-title">Degree Requirement by Role</div>
+          <div class="insight amber"><span class="insight-label">Key signal: </span>SE practitioners have an 83.9% comp/data degree rate — the highest of any role, significantly above DA (52.8%). For software-adjacent data work, the CS degree is nearly a prerequisite. For DA, it is less critical.</div>
+          <ul class="dep-list">
+            <li><b>BS Applied Mathematics / Statistics:</b> Significantly higher in DA (13.5% and 5.8% respectively). The analytics-heavy credential path.</li>
+          </ul>
+        </div>
+
+        <!-- Salary -->
+        <h3 class="section-title" id="sec-salary1-anchor">What Salary Should You Expect?</h3>
+
+        <div id="sal-bands">
+          <div class="stat-card"><div class="stat-card-num blue">35.5%</div><div class="stat-card-body">of 20–24-year-olds land in the ₱15k–₱25k band — the single largest salary bucket for this age group, significantly higher than every older cohort.</div></div>
+          <div class="stat-card" style="margin-top:8px"><div class="stat-card-num navy">25.5%</div><div class="stat-card-body">earn ₱25k–₱35k. Most fresh entrants land between ₱15k and ₱35k gross.</div></div>
+        </div>
+
+        <div id="sal-employer" class="subsection">
+          <div class="subsection-title">Employer Type Impact</div>
+          <p>Local employers concentrate at lower bands (₱15k–₱25k at 25.8%, ₱25k–₱35k at 25.1% — both significantly higher than multinationals). Targeting a multinational or foreign employer as your first employer is a salary strategy.</p>
+        </div>
+
+        <div id="sal-tenure">
+          <div class="insight teal"><span class="insight-label">Tenure signal: </span>32.6% of 20–24-year-olds have been in their current salary band for 3 months or less — the highest of any age group. Early career moves fast. Do not anchor too hard on your first number.</div>
+        </div>
+
+      </div><!-- /section -->
+    </div><!-- /part1 -->
+
+    <!-- ══ PART 2 ══ -->
+    <div id="part2">
+      <div class="part-header p2">
+        <div class="part-tag">Part 2</div>
+        <div class="part-title">For Career Shifters</div>
+        <div class="part-sub">The Pivot: Skills, Hardware, Cloud, and Content</div>
+      </div>
+
+      <div class="section">
+        <div class="question-callout teal">"What are the top skills I need for DA or DE? What hardware should I use? Should I have cloud projects in my portfolio? What about content creation?"</div>
+
+        <p>Career shifters are statistically distinct: more likely to be 25–39, working onsite (52.7%), in lower salary bands, with a non-CS degree (58.4%), and carrying admin, engineering, or customer service experience. Their satisfaction scores are significantly lower than professionals at every band from 1–5. The pivot period is genuinely hard. The data below is meant to shorten it.</p>
+
+        <!-- Skills -->
+        <h3 class="section-title" id="sec-skills-anchor">Core Skills: What DA and DE Practitioners Actually Use</h3>
+
+        <div id="da-sql" class="track-box">
+          <div class="track-box-header da">DA Track — Data Analysis &amp; Insights</div>
+          <div class="track-box-body">
+            <ul class="dep-list">
+              <li class="teal"><b>SQL</b> — non-negotiable first skill. Professionals (47.3%), DE (55.7%) all show significantly elevated usage. Start here.</li>
+              <li id="da-excel" class="teal"><b>MS Excel</b> — 64.6% of DA practitioners use it for transformation, significantly higher than DE. Career shifters already using Excel are partway in.</li>
+              <li id="da-dax" class="teal"><b>Power BI</b> — 42.4% DA usage, significantly higher than DE and SE. Power BI is to DA what Airflow is to DE.</li>
+              <li class="teal"><b>DAX</b> — 29.2% of DA practitioners, significantly higher than DE/SE. Mandatory if Power BI is your target.</li>
+              <li class="teal"><b>MS Power Query (37.5%), Power Automate (15.6%), Power BI Dataflows (21.4%)</b> — all significantly higher for DA. The Microsoft Power Platform stack is the DA lane in the Philippine market.</li>
+              <li id="da-python" class="teal"><b>Python</b> — 36.9% of professionals, significantly higher than career shifters. Add Python <em>after</em> Excel and SQL, not before.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="de-python" class="track-box" style="margin-top:14px">
+          <div class="track-box-header de">DE Track — Data Engineering</div>
+          <div class="track-box-body">
+            <ul class="dep-list">
+              <li class="teal"><b>Python</b> — 51.9% of DE practitioners use it for transformation, significantly higher than DA. Not optional.</li>
+              <li class="teal"><b>SQL</b> — 55.7% of DE practitioners, the highest of any role for ingestion/transformation.</li>
+              <li id="de-airflow" class="teal"><b>Airflow</b> — 42.9% of DE practitioners for orchestration — one of the largest role-specific gaps in the entire survey. Airflow proficiency is a credible DE signal.</li>
+              <li class="teal"><b>dbt</b> — 27.3% of DE practitioners, significantly higher than DA/SE. Learn alongside SQL.</li>
+              <li id="de-cloud-tools" class="teal"><b>Databricks</b> — 22.8% ingestion, 28.8% warehousing for DE, both significantly higher than other roles.</li>
+              <li class="teal"><b>Snowflake</b> — 42.4% in warehousing, significantly higher for DE than any other role. A legitimate portfolio anchor.</li>
+              <li class="teal"><b>Azure Data Factory, AWS Glue, Fivetran, PySpark</b> — all show significantly higher DE usage. Pick one cloud pipeline tool as your portfolio focus.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cloud -->
+        <h3 class="section-title" id="sec-cloud-anchor">Should You Have Cloud Projects in Your Portfolio?</h3>
+        <p>Yes — and the data is specific about which clouds.</p>
+
+        <div id="cloud-aws">
+          <div class="stat-card"><div class="stat-card-num teal">53.6%</div><div class="stat-card-body">of DE practitioners use AWS — significantly higher than DA. AWS is the DE cloud.</div></div>
+          <div class="stat-card" style="margin-top:8px"><div class="stat-card-num navy">50.7%</div><div class="stat-card-body">of DE practitioners also use Azure. Many use both. Choose one, get proficient, then build toward the second.</div></div>
+        </div>
+
+        <div id="cloud-gcp" class="subsection">
+          <div class="subsection-title">GCP as Starting Point</div>
+          <p>GCP shows up strongly among career shifters (59.0%, significantly higher than professionals) and PT/Contract/Freelance workers (69.2%). Its accessible free tier makes it a credible first cloud project. Supplement with AWS or Azure to match where employers invest.</p>
+        </div>
+
+        <div id="cloud-cert">
+          <div class="insight blue"><span class="insight-label">Certification as proof: </span>AWS Cloud Certification is significantly more common among professionals (9.4%) and DE/SE practitioners vs. DA. A certification fills the experience gap on a resume when years of DE employment are not yet available.</div>
+        </div>
+
+        <!-- Hardware -->
+        <h3 class="section-title" id="sec-hardware">What Hardware Should You Use?</h3>
+        <ul class="dep-list">
+          <li class="teal"><b>Laptop:</b> 89.1% of female respondents and 89.2% of professionals use one as their primary device. For hybrid work (90.9%), laptops dominate. This is the baseline.</li>
+          <li><b>Desktop:</b> 40.7% of career shifters use a desktop, significantly higher than students. If onsite, a desktop environment is normal.</li>
+          <li><b>Virtual Machine (VM):</b> 20.0% of DE practitioners use a VM, significantly higher than DA/SE. Extends hardware for cloud-like local environments.</li>
+          <li><b>Workstation:</b> 11.4% of professionals — not entry-level, but the environment you are heading toward.</li>
+        </ul>
+
+        <!-- Content Creation -->
+        <h3 class="section-title" id="sec-content">What About Content Creation?</h3>
+        <p>9.3% of career shifters do Content as part of their non-data activities — significantly higher than professionals. PT/Contract/Freelance workers also show elevated content involvement (14.6%).</p>
+        <p>This is a real bridge strategy: if your current role involves content, marketing, or communications, layering in data analytics for content performance, campaign tracking, or audience segmentation is a credible and portfolio-visible pivot path.</p>
+        <div class="insight teal"><span class="insight-label">Tool signal: </span>Notion (18.3% career shifters), WordPress (5.7%), and HubSpot are significantly elevated in adjacent-to-data roles. If you are already using these, that toolset is recognisable in the community.</div>
+
       </div>
     </div>
 
-    <!-- Section 2 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num gold">2</div>
-        <div class="section-header-text">
-          <div class="section-title">Compensation — Salary Benchmarks</div>
-          <div class="section-subtitle">Salary ranges by role, seniority, industry, and work arrangement.</div>
-        </div>
-        <a class="section-link" href="compensation_combined_smallmultiples.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+    <!-- ══ PART 3 ══ -->
+    <div id="part3">
+      <div class="part-header p3">
+        <div class="part-tag">Part 3</div>
+        <div class="part-title">For Mid-Career Professionals</div>
+        <div class="part-sub">Going Up: Salary, Satisfaction, and Staying Sharp</div>
       </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml2.html</div>
-          <div class="ph-title">Compensation Summary</div>
-          <div class="ph-desc">Key highlights: median salaries by data role, compensation spread by seniority, and top-paying industries.</div>
+
+      <div class="section">
+        <div class="question-callout blue">"How do I move to the next salary band? Is a side gig common? How long should I stay before looking for more? Is a Master's worth it? What drives job satisfaction? Are my skills updated?"</div>
+
+        <!-- Salary Ladder -->
+        <h3 class="section-title" id="sec-sal-ladder-anchor">The Salary Ladder: What the Data Shows</h3>
+
+        <div id="sal-3034">
+          <div class="stat-card"><div class="stat-card-num blue">15.0%</div><div class="stat-card-body">of 30–34-year-olds earn ₱125k–₱250k — significantly higher than every other age group. This is the professional breakthrough band.</div></div>
+          <div class="stat-card" style="margin-top:8px"><div class="stat-card-num navy">3.7%</div><div class="stat-card-body">of professionals earn ₱250k+ — significantly higher than career shifters. Senior compensation is in a separate tier.</div></div>
         </div>
+
+        <div id="sal-employer-type" class="subsection">
+          <div class="subsection-title">Employer Type — The Strongest Lever</div>
+          <p>Multinational employers are significantly overrepresented in the ₱45k–₱125k bands. Foreign employers are significantly stronger at ₱125k–₱250k (11.7% vs. 4.3% local). Moving from a local to a multinational or foreign employer is the single most impactful structural career move for salary growth in this dataset.</p>
+        </div>
+
+        <div id="sal-remote-premium">
+          <div class="insight blue"><span class="insight-label">The remote premium: </span>Remote workers show significantly higher concentrations across every salary band above ₱55k. Onsite concentration is heaviest at the lower bands. Positioning for remote-eligible roles is a salary strategy, not just a lifestyle preference.</div>
+        </div>
+
+        <!-- Tenure -->
+        <h3 class="section-title" id="sec-tenure-anchor">How Long Should You Stay Before Moving?</h3>
+
+        <div id="ten-1-2">
+          <div class="stat-card"><div class="stat-card-num blue">1–2 yrs</div><div class="stat-card-body">Most common tenure window for 25–29 (30.6%) and 30–34 (31.1%) year-olds — both significantly higher than the 20–24 cohort. This is the modal move window in the core professional age bands.</div></div>
+        </div>
+
+        <div id="ten-senior" class="subsection">
+          <ul class="dep-list">
+            <li id="ten-25"><b>2–5 years:</b> Significantly more common among 35–39-year-olds (33.3%). Senior professionals stay longer before moving.</li>
+            <li><b>6 months–1 year:</b> Significantly higher for full-time professionals (22.1%). The first move often comes within the year.</li>
+          </ul>
+        </div>
+
+        <!-- Side Gig -->
+        <h3 class="section-title" id="sec-sidegig-anchor">Is a Side Gig Common?</h3>
+
+        <div id="sg-se">
+          <div class="stat-card"><div class="stat-card-num purple">35.7%</div><div class="stat-card-body">of SE practitioners had a side gig in the past 12 months — significantly higher than DA (20.6%) and DE (18.8%). SE is the most side-gig-active role.</div></div>
+          <div class="stat-card" style="margin-top:8px"><div class="stat-card-num amber">44.1%</div><div class="stat-card-body">of PT/Contract/Freelance workers report a side gig — significantly higher than full-time employees.</div></div>
+        </div>
+
+        <div id="sg-remote" class="subsection">
+          <p>Remote workers show significantly elevated side-gig rates (29.5%) vs. onsite (18.2%) and hybrid (19.4%) workers. The flexibility of remote work enables supplemental income.</p>
+        </div>
+
+        <div id="sg-dade">
+          <div class="insight blue"><span class="insight-label">For full-time DA/DE: </span>79–81% report no side gig. The full-time data role tends to be all-in. If supplemental income is the goal, SE skills and remote positioning create more room.</div>
+        </div>
+
+        <!-- Master's -->
+        <h3 class="section-title" id="sec-masters-anchor">Is a Master's Degree Worth It?</h3>
+
+        <div id="msc-da">
+          <div class="stat-card"><div class="stat-card-num blue">10.1%</div><div class="stat-card-body">of DA practitioners hold a Master's degree — significantly higher than DE and SE. The Master's pays off more in DA than in engineering-track roles.</div></div>
+        </div>
+
+        <div id="msc-age" class="subsection">
+          <div class="subsection-title">Prevalence by Age</div>
+          <ul class="dep-list">
+            <li>4.1% at 25–29 → 13.1% at 30–34 → 16.5% at 35–39 — each step significantly higher than the previous. Accumulated progressively, not front-loaded.</li>
+            <li>Multinational (9.4%) and foreign (8.6%) employers show significantly higher Master's rates vs. local (4.4%). A meaningful differentiator for large multinationals.</li>
+          </ul>
+        </div>
+
+        <div id="msc-de">
+          <div class="insight amber"><span class="insight-label">Bottom line: </span>For DA targeting a senior multinational role, a Master's in Applied Mathematics, Data Science, or Statistics is a credible investment. For DE, there is no significant Master's signal — certifications and hands-on project depth deliver more return.</div>
+        </div>
+
+        <!-- Satisfaction -->
+        <h3 class="section-title" id="sec-satisfaction-anchor">What Is Driving Job Satisfaction?</h3>
+
+        <div id="sat-top">
+          <div class="stat-card"><div class="stat-card-num blue">Score 10</div><div class="stat-card-body">Significantly more common among professionals (10.2%), foreign-employed (13.5%), remote workers (12.4%), and PT/Contract/Freelance (12.6%) — all vs. career shifters.</div></div>
+          <div class="insight teal" style="margin-top:10px"><span class="insight-label">Who is most satisfied? </span>Foreign-employed remote workers. Flexibility + employer calibre + compensation is the satisfaction formula.</div>
+        </div>
+
+        <div id="sat-setup" class="subsection">
+          <div class="subsection-title">Work Setup Impact</div>
+          <p>Onsite workers show significantly elevated rates at scores 1, 2, and 5. Hybrid workers outperform onsite on scores 6, 8, 9, and 10. Hybrid is the satisfaction sweet spot for full-time employed professionals.</p>
+        </div>
+
+        <div id="sat-shifters">
+          <div class="insight amber"><span class="insight-label">For shifters: </span>Significantly higher rates at every low satisfaction score (1–5). The pivot period is the dissatisfaction period. It passes — but the data confirms it is real.</div>
+        </div>
+
+        <!-- Professional Tool Stack -->
+        <h3 class="section-title" id="sec-tools-pro-anchor">Are My Skills Updated? The Professional Tool Stack</h3>
+
+        <div id="tools-collab" class="subsection">
+          <div class="subsection-title">Collaboration &amp; Workflow</div>
+          <ul class="dep-list">
+            <li><b>Microsoft Teams (58.6%), SharePoint (37.9%), Confluence (17.8%), Jira (27.3%):</b> All significantly higher for professionals. Enterprise collaboration fluency is a senior-level expectation.</li>
+            <li><b>Power Automate (19.5%), PowerApps (16.1%), OneDrive (29.4% DA):</b> Full Microsoft 365 Power Platform fluency is expected, especially in DA roles.</li>
+          </ul>
+        </div>
+
+        <div id="tools-learning" class="subsection">
+          <div class="subsection-title">Learning Platforms Professionals Use</div>
+          <ul class="dep-list">
+            <li><b>O'Reilly (5.9%), LinkedIn Learning (20.2%), MicrosoftLearn (14.1%):</b> All significantly elevated for professionals vs. students/shifters.</li>
+            <li><b>Udemy (32.6%), Coursera:</b> Both significantly higher for professionals and 30–34-year-olds. Self-paced structured learning is a professional habit.</li>
+          </ul>
+        </div>
+
+        <div id="tools-ai" class="subsection">
+          <div class="subsection-title">AI Tool Adoption</div>
+          <div class="stat-card"><div class="stat-card-num blue">65.1%</div><div class="stat-card-body">of professionals use AI tools daily for work — significantly higher than students and career shifters. The professional group is already AI-native.</div></div>
+          <ul class="dep-list" style="margin-top:10px">
+            <li><b>Copilot:</b> 52.0% of professionals — significantly higher than career shifters. The enterprise AI of choice.</li>
+            <li><b>Claude:</b> 30.5% of professionals — significantly higher than career shifters. A marker of more advanced and diverse AI usage.</li>
+            <li><b>GitHub Copilot:</b> Elevated among DE (16.9%) and SE (29.6%), significantly above DA.</li>
+          </ul>
+        </div>
+
       </div>
     </div>
 
-    <!-- Section 3 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num teal">3</div>
-        <div class="section-header-text">
-          <div class="section-title">Tools &amp; Tech — The Data Stack</div>
-          <div class="section-subtitle">Cloud platforms, coding languages, hardware, AI tools, and the modern data stack.</div>
-        </div>
-        <a class="section-link" href="tools_tech.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+    <!-- ══ PART 4 ══ -->
+    <div id="part4">
+      <div class="part-header p4">
+        <div class="part-tag">Part 4</div>
+        <div class="part-title">For DEP Community Leaders</div>
+        <div class="part-sub">Engagement, Adjacent Platforms, and the Learning University</div>
       </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml3.html</div>
-          <div class="ph-title">Tools &amp; Tech Summary</div>
-          <div class="ph-desc">Key highlights: most-used cloud platforms, top programming languages, AI tool adoption, and data stack preferences.</div>
+
+      <div class="section">
+        <div class="question-callout purple">"What can we do to increase engagement? We partner with DataCamp — what else are we missing? What are members already using that we can build toward? Is a self-paced university viable?"</div>
+
+        <!-- DEP Engagement -->
+        <h3 class="section-title" id="sec-dep-engage-anchor">How the Community Currently Engages With DEP</h3>
+
+        <div id="dep-scholarship">
+          <div class="stat-card"><div class="stat-card-num purple">92.3%</div><div class="stat-card-body">of students and 92.5% of job seekers report the DEP DataCamp scholarship — both significantly higher than professionals and career shifters. The scholarship owns the early-career audience.</div></div>
         </div>
+
+        <div id="dep-discord" class="subsection">
+          <div class="subsection-title">Beyond the Scholarship</div>
+          <ul class="dep-list">
+            <li class="purple"><b>DEP Discord:</b> 40.0% of professionals, 34.0% of career shifters — both significantly higher than students. Discord is the professional retention channel. Already working for the hardest segment to keep.</li>
+            <li class="purple"><b>DEP DataMasters:</b> 19.0% of professionals, 10.7% of career shifters — both significantly higher than students. Resonates with employed practitioners.</li>
+            <li class="purple"><b>DEP Puso Project:</b> 22.3% of professionals — significantly higher than students and career shifters. Strong flagship engagement.</li>
+            <li class="purple"><b>DEP Meetup Group:</b> 22.7% of professionals, 28.8% of DE practitioners — both significantly higher than students. In-person community is a professional-stage behaviour.</li>
+          </ul>
+        </div>
+
+        <div id="dep-funnel-gap">
+          <div class="insight purple"><span class="insight-label">The funnel gap: </span>Students and job seekers engage heavily with the DataCamp scholarship but show significantly lower engagement with every other DEP initiative. The scholarship is an on-ramp with no clear off-ramp into the community. This is the engagement conversion problem to solve.</div>
+        </div>
+
+        <!-- DataCamp -->
+        <h3 class="section-title" id="sec-datacamp-anchor">DataCamp: Who Is Actually Using It?</h3>
+
+        <div id="dc-who">
+          <ul class="dep-list">
+            <li class="purple"><b>Job seekers:</b> 54.0% use DataCamp — significantly higher than students and career shifters.</li>
+            <li class="purple"><b>Professionals:</b> 55.7% — significantly higher than students and career shifters.</li>
+          </ul>
+          <p style="margin-top:8px">DataCamp is strongest among job seekers and professionals — people actively applying skills to work. The platform's value compounds at these stages, not at the student stage.</p>
+        </div>
+
+        <div id="dc-gender">
+          <div class="insight purple"><span class="insight-label">Gender gap: </span>Males: 51.4% use DataCamp — significantly higher than females. Worth investigating whether content or marketing is a factor.</div>
+        </div>
+
+        <!-- Platforms -->
+        <h3 class="section-title" id="sec-platforms-anchor">What Else Are They Using?</h3>
+
+        <div id="plat-learning" class="subsection">
+          <div class="subsection-title">High-Usage Learning Platforms by Segment</div>
+          <ul class="dep-list">
+            <li class="purple"><b>Udemy:</b> 32.6% of professionals and 35.4% of multinational employees — both significantly higher than students. The self-paced upskilling platform of the professional segment.</li>
+            <li class="purple"><b>Coursera:</b> 36.7% of 30–34-year-olds and 35.0% of career shifters — the career-pivot platform.</li>
+            <li class="purple"><b>LinkedIn Learning:</b> Professionals (20.2%), DA (21.1%), multinational (19.0%) — all significantly higher. Embedded in professional workflows.</li>
+          </ul>
+        </div>
+
+        <div id="plat-youtube" class="subsection">
+          <div class="subsection-title">YouTube — The Underrated Giant</div>
+          <div class="stat-card"><div class="stat-card-num purple">68.7%</div><div class="stat-card-body">of students use YouTube for learning — significantly higher in its comparison. 67.0% of DA practitioners too. Still the primary free learning resource across career stages, yet underutilised by DEP as a curated channel.</div></div>
+          <ul class="dep-list" style="margin-top:10px">
+            <li><b>GitHub (57–58%):</b> Dominant among students and job seekers. The primary entry-level practice environment.</li>
+            <li><b>FreeCodeCamp (20.2% students, 18.8% job seekers):</b> Both significantly higher than career shifters. Free curriculum with strong early-career adoption.</li>
+            <li><b>W3Schools (37.0% students):</b> Still widely used for fundamentals.</li>
+          </ul>
+        </div>
+
+        <div id="plat-communities" class="subsection">
+          <div class="subsection-title">Adjacent Communities</div>
+          <ul class="dep-list">
+            <li class="purple"><b>Data Analytics Philippines:</b> 47.0% of professionals, 52.0% of DA practitioners — the largest adjacent community for the professional analytics segment.</li>
+            <li class="purple"><b>Power BI Pilipinas:</b> 30.9% professionals, 38.3% DA, 39.3% of 35–39-year-olds — deeply embedded in the senior analytics segment.</li>
+            <li><b>Analytics Association of the Philippines:</b> 18.5% professionals, 21.1% multinational employees — the institutional body with corporate reach.</li>
+            <li><b>DEVCON Philippines:</b> 18.5% students, 21.4% SE practitioners — bridges SE and data roles.</li>
+            <li><b>Community: SPARTA PH:</b> 13.2% of 30–34-year-olds, 9.2% of career shifters — government upskilling resonates with the career-pivot audience.</li>
+          </ul>
+        </div>
+
+        <!-- University -->
+        <h3 class="section-title" id="sec-university-anchor">The Self-Paced Learning University: Is It Viable?</h3>
+
+        <div id="uni-demand">
+          <div class="stat-card"><div class="stat-card-num purple">87.2%</div><div class="stat-card-body">of job seekers cite Upskill/Skill Acquisition as a need — significantly higher than professionals. The demand is sharpest at the entry and pivot stages.</div></div>
+          <div class="stat-card" style="margin-top:8px"><div class="stat-card-num navy">86.3%</div><div class="stat-card-body">of career shifters also cite Upskill/Skill Acquisition. Two of DEP's most important audiences are explicitly asking for this.</div></div>
+        </div>
+
+        <div id="uni-format" class="subsection">
+          <div class="subsection-title">Format That Works</div>
+          <ul class="dep-list">
+            <li class="purple"><b>Udemy/Coursera-style self-paced:</b> Both platforms show significantly elevated usage among the exact audiences DEP targets. The format is proven and familiar.</li>
+            <li class="purple"><b>GitHub-anchored projects:</b> Students use GitHub at 57–58% — already their primary project environment. Meeting students where they already work.</li>
+            <li class="purple"><b>Discord event delivery:</b> 16.7% of professionals and 10.7% of students attended DEP Discord events, both significantly higher than career shifters. Cohort-based live sessions via Discord are a viable delivery channel.</li>
+          </ul>
+        </div>
+
+        <div id="uni-career-adv">
+          <div class="insight purple"><span class="insight-label">Framing matters: </span>Career advancement is the #1 stated need across career shifters (81.9%) and onsite workers (82.4%) — both significantly higher than their comparators. A DEP learning initiative that leads with career advancement outcomes — not just skill acquisition — speaks to the most urgent expressed need in the survey.</div>
+        </div>
+
+        <!-- Volunteers -->
+        <h3 class="section-title" id="sec-volunteers-anchor">Volunteer Capacity: Who Will Help Build It?</h3>
+
+        <div id="vol-teach">
+          <div class="stat-card"><div class="stat-card-num purple">40–41%</div><div class="stat-card-body">of job seekers, professionals, and males say they are willing to share knowledge — all significantly higher than students alone. The community wants to teach.</div></div>
+        </div>
+
+        <div id="vol-mentor" class="subsection">
+          <ul class="dep-list">
+            <li class="purple"><b>Mentor:</b> Significantly more common among 30–34 (12.7%), 35–39 (12.9%), and multinational employees (14.9%). Senior professionals at multinationals are the mentorship supply.</li>
+            <li class="purple"><b>Teach specific skills:</b> DE practitioners (12.2%) — significantly higher than DA/SE. DE is willing to teach hard technical content.</li>
+            <li class="purple"><b>Share experiences:</b> Job seekers (32.9%) and DE practitioners (33.8%) — both significantly higher than students/DA. The career-story format is where job seekers and DE want to contribute.</li>
+          </ul>
+          <div class="insight purple" style="margin-top:12px"><span class="insight-label">Bottom line: </span>The instructor base already exists. Senior professionals aged 30–39 at multinational companies — particularly in DE and DA — are willing to mentor, teach, and share. A DEP learning university built with this group as instructors directly matches supply to demand from students and career shifters.</div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Section 4 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num green">4</div>
-        <div class="section-header-text">
-          <div class="section-title">Learning &amp; Community — Growth &amp; Engagement</div>
-          <div class="section-subtitle">Self-study habits, events, DEP initiatives, volunteering, and open feedback.</div>
-        </div>
-        <a class="section-link" href="learning_community.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml4.html</div>
-          <div class="ph-title">Learning &amp; Community Summary</div>
-          <div class="ph-desc">Key highlights: top learning platforms, event attendance, DEP initiative participation, and community sentiment.</div>
-        </div>
+    <!-- ══ CLOSING ══ -->
+    <div id="closing" class="arc-block">
+      <div class="arc-title">The Shape of a Data Career in the Philippines</div>
+      <div class="arc-body">
+        <p>The 1,732 respondents of the 2026 DEP Annual Survey trace a consistent arc.</p>
+        <p>It starts with a student at 20–24, likely studying CS or ECE, building on GitHub and YouTube, earning a DataCamp scholarship, and applying via LinkedIn and Indeed to local employers. They land between ₱15k and ₱35k and start moving within three to six months.</p>
+        <p>Running alongside that student is a career shifter — 25–39 years old, coming from engineering, admin, or education, learning SQL and Power BI via Coursera and Udemy, working onsite for a local employer, with satisfaction scores measurably lower than their professional peers. They are asking the same question every week: how do I get in? The data answers: SQL first, Power BI or Python next, a cloud project after that, LinkedIn and OnlineJobs.ph as the channels.</p>
+        <p>By 30–34, the professional who stayed the course is earning ₱45k–₱125k, working hybrid or remote for a multinational or foreign employer, using Teams and Jira alongside Databricks and Snowflake, adopting AI tools daily, and scoring 7–10 on satisfaction.</p>
+        <p>The community holding this arc together — DEP — is most deeply embedded at the scholarship end and the Discord end. The gap is the transition: from scholarship recipient to active community member, from first job to employed professional. That gap is exactly where a DEP learning initiative, built on the tools and formats this community already uses, and taught by the senior professionals who are already willing to teach, has the most to give.</p>
       </div>
     </div>
 
-    <!-- Section 5 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num purple">5</div>
-        <div class="section-header-text">
-          <div class="section-title">Section 5 — Placeholder Title</div>
-          <div class="section-subtitle">Brief description of what this section covers.</div>
-        </div>
-        <a class="section-link" href="subhtml5.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml5.html</div>
-          <div class="ph-title">Section 5 Summary</div>
-          <div class="ph-desc">Summary content and key highlights for Section 5 go here.</div>
-        </div>
-      </div>
-    </div>
+  </div><!-- /content-wrap -->
 
-    <!-- Section 6 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num rose">6</div>
-        <div class="section-header-text">
-          <div class="section-title">Section 6 — Placeholder Title</div>
-          <div class="section-subtitle">Brief description of what this section covers.</div>
-        </div>
-        <a class="section-link" href="subhtml6.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml6.html</div>
-          <div class="ph-title">Section 6 Summary</div>
-          <div class="ph-desc">Summary content and key highlights for Section 6 go here.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section 7 -->
-    <div class="summary-section">
-      <div class="section-header">
-        <div class="section-num slate">7</div>
-        <div class="section-header-text">
-          <div class="section-title">Section 7 — Placeholder Title</div>
-          <div class="section-subtitle">Brief description of what this section covers.</div>
-        </div>
-        <a class="section-link" href="subhtml7.html">
-          View Section
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-            <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-      <div class="section-body">
-        <div class="placeholder-block">
-          <div class="ph-label">Placeholder → subhtml7.html</div>
-          <div class="ph-title">Section 7 Summary</div>
-          <div class="ph-desc">Summary content and key highlights for Section 7 go here.</div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- end content-wrapper -->
-
-  <!-- FOOTER -->
-  <footer class="page-footer">
-    <a href="https://www.linkedin.com/in/sandygcabanes" target="_blank">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-           viewBox="0 0 24 24" fill="#A8DADC">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853
-                 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9
-                 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337
-                 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063
-                 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0
-                 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24
-                 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-      </svg>
-      Sandy Cabanes
-    </a>
-    <span>·</span>
-    <span>© 2025 Data Engineering Pilipinas State of the Community Survey</span>
-       <span style="margin-left: auto;">
-      <a href="https://hitscounter.dev" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; color:#A8DADC; text-decoration:none; font-weight:normal;">
-        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fsandygcabanes.github.io%2F2025-2026-DEP-State-of-the-Community-Survey-Results%2Fweb_report_htmls%2Fsummary.html&label=views&icon=eye-fill&color=%232A9D8F"
-         alt="Visitor Count" style="height:20px;"/>
-     </a>
-    </span>
-
-  <script>
-  fetch("https://script.google.com/macros/s/AKfycbwm39maDOpISu1hpTjfMhFs8Z6oth_Mh487-yyGuRelNxAIObWfOEAqsU9hnDL0vB6eww/exec?page=summary&ref=" 
-    + encodeURIComponent(document.referrer))
-  .catch(function() {});  // silent fail — never breaks the page
-  </script>
+  <footer>
+    Data Engineering Pilipinas · Annual Survey 2026 · Significant findings from n=1,732 · 95% confidence · Pairwise z-tests within break groups
   </footer>
 
+</main>
+
+<button id="sb-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+
+<script>
+// ── Progress bar ─────────────────────────────────────────────────────────
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const scrolled = document.documentElement.scrollTop;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.transform = `scaleX(${scrolled / max})`;
+});
+
+// ── Sidebar: toggle part ──────────────────────────────────────────────────
+function togglePart(btn) {
+  const sections = btn.nextElementSibling;
+  const isOpen = sections.classList.contains('open');
+  sections.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── Sidebar: toggle section (has children) ───────────────────────────────
+function toggleSection(btn, id) {
+  const sub = document.getElementById(id + '-sub');
+  if (!sub) { navTo(id); return; }
+  const isOpen = sub.classList.contains('open');
+  sub.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── Scroll to anchor ──────────────────────────────────────────────────────
+function navTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 60;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: 'smooth' });
+  // Close mobile sidebar
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+// ── Active nav tracking via IntersectionObserver ──────────────────────────
+const anchors = [
+  'intro','roles-da','roles-de','roles-se','ind-itbpo','ind-banking','ind-early',
+  'ch-linkedin','ch-indeed','ch-online','cred-cs','cred-role','sal-bands',
+  'sal-employer','sal-tenure','da-sql','de-python','cloud-aws','cloud-gcp',
+  'cloud-cert','sec-hardware','sec-content','sal-3034','sal-employer-type',
+  'sal-remote-premium','ten-1-2','ten-senior','sg-se','sg-remote','sg-dade',
+  'msc-da','msc-age','msc-de','sat-top','sat-setup','sat-shifters',
+  'tools-collab','tools-learning','tools-ai','dep-scholarship','dep-discord',
+  'dep-funnel-gap','dc-who','dc-gender','plat-learning','plat-youtube',
+  'plat-communities','uni-demand','uni-format','uni-career-adv','vol-teach',
+  'vol-mentor','closing'
+];
+
+const allNavBtns = document.querySelectorAll(
+  '.sb-part-btn, .sb-section-btn, .sb-subsection-btn, .sb-q-btn'
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      allNavBtns.forEach(b => {
+        const fn = b.getAttribute('onclick') || '';
+        if (fn.includes(`'${id}'`) || fn.includes(`"${id}"`)) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+anchors.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+// ── Auto-open part when nav item is clicked ───────────────────────────────
+document.querySelectorAll('.sb-section-btn, .sb-subsection-btn, .sb-q-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Walk up to open parent sb-sections
+    let el = btn.parentElement;
+    while (el) {
+      if (el.classList.contains('sb-sections') || el.classList.contains('sb-subsections') || el.classList.contains('sb-questions')) {
+        el.classList.add('open');
+        const prevBtn = el.previousElementSibling;
+        if (prevBtn) prevBtn.classList.add('open');
+      }
+      el = el.parentElement;
+      if (el && el.classList.contains('sb-nav')) break;
+    }
+  });
+});
+</script>
 </body>
 </html>
