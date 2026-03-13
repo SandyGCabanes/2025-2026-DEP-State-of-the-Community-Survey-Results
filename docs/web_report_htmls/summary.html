@@ -532,15 +532,26 @@ ul.dep-list li.purple::before { color: var(--purple); }
 }
 
 /* Footer */
-footer {
-  text-align: center;
-  padding: 28px 48px;
+footer.page-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 16px 48px;
   font-size: 11px;
   color: var(--muted);
   border-top: 1px solid var(--rule);
   margin-top: 48px;
   letter-spacing: .04em;
 }
+footer.page-footer a {
+  color: #A8DADC;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+footer.page-footer a:hover { text-decoration: underline; }
 
 /* ── PROGRESS BAR ─────────────────────────────────────────────────────────── */
 #progress-bar {
@@ -853,6 +864,8 @@ footer {
           <button class="sb-subsection-btn" onclick="navTo('vol-teach')">Who will teach</button>
           <button class="sb-subsection-btn" onclick="navTo('vol-mentor')">Mentor supply</button>
         </div>
+
+        <button class="sb-section-btn" onclick="navTo('sec-laptop-anchor')">The Access Problem: Laptops</button>
 
       </div>
     </div>
@@ -1225,11 +1238,12 @@ footer {
 
         <div id="tools-ai" class="subsection">
           <div class="subsection-title">AI Tool Adoption</div>
+          <div class="insight blue" style="margin-bottom:14px"><span class="insight-label">The debate is over. </span>AI adoption is no longer a discussion in this community — it's a fact. 65% of professionals use AI tools daily. The question has shifted from "should we use AI?" to "which tools, for what, and how fast?"</div>
           <div class="stat-card"><div class="stat-card-num blue">65.1%</div><div class="stat-card-body">of professionals use AI tools daily for work — significantly higher than students and career shifters. The professional group is already AI-native.</div></div>
           <ul class="dep-list" style="margin-top:10px">
             <li><b>Copilot:</b> 52.0% of professionals — significantly higher than career shifters. The enterprise AI of choice.</li>
             <li><b>Claude:</b> 30.5% of professionals — significantly higher than career shifters. A marker of more advanced and diverse AI usage.</li>
-            <li><b>GitHub Copilot:</b> Elevated among DE (16.9%) and SE (29.6%), significantly above DA.</li>
+            <li><b>GitHub Copilot:</b> Elevated among DE (16.9%) and SE (29.6%), significantly above DA. The vibe coding crowd is already here — SE practitioners lead on both AI adoption and side gigs, the exact profile of someone shipping faster with AI assistance.</li>
           </ul>
         </div>
 
@@ -1265,7 +1279,7 @@ footer {
         </div>
 
         <div id="dep-funnel-gap">
-          <div class="insight purple"><span class="insight-label">The funnel gap: </span>Students and job seekers engage heavily with the DataCamp scholarship but show significantly lower engagement with every other DEP initiative. The scholarship is an on-ramp with no clear off-ramp into the community. This is the engagement conversion problem to solve.</div>
+          <div class="insight purple"><span class="insight-label">Worth noting: </span>The scholarship reaches students and job seekers far better than any other DEP initiative. But many of these members access DEP primarily through a mobile phone — which makes Discord, meetups, and project-based learning much harder to join. Lower engagement with other initiatives likely reflects a device access barrier, not a lack of interest. Reaching this group more deeply starts with getting them a proper machine to work on.</div>
         </div>
 
         <!-- DataCamp -->
@@ -1350,8 +1364,16 @@ footer {
             <li class="purple"><b>Teach specific skills:</b> DE practitioners (12.2%) — significantly higher than DA/SE. DE is willing to teach hard technical content.</li>
             <li class="purple"><b>Share experiences:</b> Job seekers (32.9%) and DE practitioners (33.8%) — both significantly higher than students/DA. The career-story format is where job seekers and DE want to contribute.</li>
           </ul>
-          <div class="insight purple" style="margin-top:12px"><span class="insight-label">Bottom line: </span>The instructor base already exists. Senior professionals aged 30–39 at multinational companies — particularly in DE and DA — are willing to mentor, teach, and share. A DEP learning university built with this group as instructors directly matches supply to demand from students and career shifters.</div>
+          <div class="insight purple" style="margin-top:12px"><span class="insight-label">Bottom line: </span>The instructors are already here. Senior professionals in their 30s at multinationals — especially in DE and DA — are willing to teach, mentor, and share. Build the learning program around them and the supply-demand match takes care of itself.</div>
+          <div class="insight blue" style="margin-top:10px"><span class="insight-label">Already happening: </span>Volunteer-led initiatives are already emerging organically from the community. A DEP member has launched a "vibecode camp" — a practical, AI-assisted coding program that reflects exactly where the community has moved. This is what volunteer capacity looks like in action: no top-down mandate, just a practitioner who saw a need and built something. The data shows more of this is possible.</div>
         </div>
+
+        <!-- Laptop -->
+        <h3 class="section-title" id="sec-laptop-anchor">The Access Problem: A Laptop Changes Everything</h3>
+        <p>Most DEP learning initiatives assume a laptop. GitHub projects, cloud CLIs, Discord, online sessions — none of these work well on a phone. Yet many of DEP's early-career members, especially students and career shifters in under-served segments, are mobile-only.</p>
+        <div class="stat-card"><div class="stat-card-num purple">40.7%</div><div class="stat-card-body">of career shifters use a desktop as their primary device — significantly higher than students. A fixed home setup, not a laptop, is the norm for many members trying to make the pivot.</div></div>
+        <p style="margin-top:14px">A refurbished laptop drive — machines running Linux, pre-configured for Python, SQL, and cloud tools — directly removes the biggest barrier between a member and the rest of the DEP ecosystem. It is also the kind of initiative where the community's existing volunteer base can contribute: sourcing, refurbishing, and setting up machines does not require a budget, just hands.</p>
+        <div class="insight purple"><span class="insight-label">The real unlock: </span>The DataCamp scholarship gets members in the door. A working laptop keeps them there. Without it, the self-paced university, the GitHub projects, and the Discord community all stay out of reach for the segment that needs them most.</div>
 
       </div>
     </div>
@@ -1370,8 +1392,29 @@ footer {
 
   </div><!-- /content-wrap -->
 
-  <footer>
-    Data Engineering Pilipinas · Annual Survey 2026 · Significant findings from n=1,732 · 95% confidence · Pairwise z-tests within break groups
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <a href="https://www.linkedin.com/in/sandygcabanes" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+           viewBox="0 0 24 24" fill="#A8DADC">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853
+                 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9
+                 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337
+                 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063
+                 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0
+                 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24
+                 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+      </svg>
+      Sandy G Cabanes
+    </a>
+    <span>·</span>
+    <span>© 2025 Data Engineering Pilipinas State of the Community Survey</span>
+    <span style="margin-left: auto;">
+      <a href="https://hitscounter.dev" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; color:#A8DADC; text-decoration:none; font-weight:normal;">
+        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fsandygcabanes.github.io%2F2025-2026-DEP-State-of-the-Community-Survey-Results%2Fweb_report_htmls%2Fsummary.html&label=views&icon=eye-fill&color=%232A9D8F"
+         alt="Visitor Count" style="height:20px;"/>
+      </a>
+    </span>
   </footer>
 
 </main>
@@ -1470,6 +1513,11 @@ document.querySelectorAll('.sb-section-btn, .sb-subsection-btn, .sb-q-btn').forE
     }
   });
 });
+</script>
+<script>
+  fetch("https://script.google.com/macros/s/AKfycbwm39maDOpISu1hpTjfMhFs8Z6oth_Mh487-yyGuRelNxAIObWfOEAqsU9hnDL0vB6eww/exec?page=summary&ref="
+    + encodeURIComponent(document.referrer))
+  .catch(function() {});
 </script>
 </body>
 </html>
