@@ -180,13 +180,33 @@
 
     /* ── Mobile (≤768px) ────────────────────────────────────────────────── */
     @media (max-width: 768px) {
-      body { padding: 16px 15px !important; }
-      .side-by-side { flex-direction: column; }
-      .panel-total, .panel-grid { flex: 1 1 100%; width: 100%; }
-      .total-inner .plotly-graph-div { height: 400px !important; }
-      .grid-inner  .plotly-graph-div { height: 400px !important; }
-      .seg-tables-grid { height: auto; grid-template-columns: 1fr; }
-      .filter-bar { top: 0; }
+      body         { padding: 16px 15px !important; }
+      .hero-banner  { padding: 16px; gap: 10px; }
+      .section      { padding: 24px 16px; }
+      .page-footer  { padding: 16px; }
+      nav {
+        height: auto !important;
+        padding: 10px 1rem !important;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center !important;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+      }
+      .side-by-side.col-2 > *,
+      .side-by-side.col-3 > * {
+        flex: 1 1 100%;
+        width: 100%;
+      }
+      /* Keep Plotly charts at a sensible mobile height */
+      .side-by-side .plotly-graph-div,
+      .chart-card .plotly-graph-div,
+      .chart-card-grey .plotly-graph-div {
+        height: 420px !important;
+      }
     }
 
   </style>
