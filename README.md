@@ -53,7 +53,7 @@ Raw responses are not published. Prior to any public data release, a synthetic d
 
 ## About Data Engineering Pilipinas
 
-Data Engineering Pilipinas (DEP) has grown from 28,000 to **40,000+ members** on Facebook, spearheaded by Myk Ogbinar.  DEP currently has a joint partnership with Datacamp, providing thousands of scholarships to deserving members.  It is supported by volunteers, who contribute time and effort to sustain the community.  It is one of the most active data communities in the Philippines, running programs for aspiring data engineers and other data-related career seekers. This is the **second annual** State of the Community Survey.
+Data Engineering Pilipinas (DEP) has grown from 28,000 to **40,000+ members** on Facebook, spearheaded by [Myk Ogbinar](https://github.com/ogbinar).  DEP currently has a joint partnership with Datacamp, providing thousands of scholarships to deserving members.  It is supported by volunteers, who contribute time and effort to sustain the community.  It is one of the most active data communities in the Philippines, running programs for aspiring data engineers and other data-related career seekers. This is the **second annual** State of the Community Survey.
 
 ---
 
