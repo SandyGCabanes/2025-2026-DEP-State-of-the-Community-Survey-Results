@@ -2,9 +2,9 @@
 ## HTML, Python, Excel, Tableau(to follow)
 
 
-End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,732 responses** from the Philippine data and tech community. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.
+End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,861 responses** from the Philippine data and tech community, including career shifters, students and current data professionals. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.
 
-**Sole analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
+**Analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
 
 ---
 
@@ -36,7 +36,7 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 |---|---|
 | Data collection | Google Forms, Google Sheets |
 | Data processing | Excel (pivot tables)|
-| Data cleaning & pipeline | Python (pandas, DuckDB, SQLite)  - see [dep-survey-data-cleaning-pipeline](link)|
+| Data cleaning & pipeline | Python (pandas, Gemini API call, DuckDB, SQLite)  - see [dep-survey-data-cleaning-pipeline](link)|
 | Privacy protection | R and Python: Bayesian network anonymization prior to public data release |
 | Visualization | Python, Plotly (interactive charts), geopy, folium (location map) |
 | Report delivery | GitHub Pages (HTML, free and open-source) |
@@ -53,7 +53,7 @@ Raw responses are not published. Prior to any public data release, a synthetic d
 
 ## About Data Engineering Pilipinas
 
-Data Engineering Pilipinas (DEP) has grown from 28,000 to **40,000+ members** on Facebook, spearheaded by Myk Ogbinar. It is one of the most active data communities in the Philippines, running programs for aspiring data engineers and other data-related career seekers. This is the **second annual** State of the Community Survey, enabling year-over-year trend analysis.
+Data Engineering Pilipinas (DEP) has grown from 28,000 to **40,000+ members** on Facebook, spearheaded by Myk Ogbinar.  DEP currently has a joint partnership with Datacamp, providing thousands of scholarships to deserving members.  It is supported by volunteers, who contribute time and effort to sustain the community.  It is one of the most active data communities in the Philippines, running programs for aspiring data engineers and other data-related career seekers. This is the **second annual** State of the Community Survey.
 
 ---
 
@@ -64,5 +64,4 @@ Interested in survey design, data analysis, or interactive report development fo
 **Sandy G Cabanes** · [LinkedIn](https://www.linkedin.com/in/sandygcabanes) · Data Analyst & Report Developer
 
 
-	- gif embedded in Tableau housed here [github](https://github.com/SandyGCabanes/2024survey_homepage)
 
