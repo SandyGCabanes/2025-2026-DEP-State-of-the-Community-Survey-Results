@@ -41,7 +41,7 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 | Visualization | Python, Plotly (interactive charts), geopy, folium (location map) |
 | Report delivery | GitHub Pages (HTML, free and open-source) |
 | Dashboard | Tableau Public *(to follow)* |
-| Animated assets | Custom Python gif converter — [repo](https://github.com/SandyGCabanes/mp4_to_gif) |
+
 
 ---
 
