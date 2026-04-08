@@ -13,7 +13,7 @@ The crosstab approach answers *"Is this variable related to satisfaction?"* but 
 
 ## Solution: Multi-Model SHAP Attribution
 
-Rather than picking winners by gut feel, four different models were trained on the same survey data and **SHAP (SHapley Additive exPlanations)** was used to extract each model's view of driver importance. Agreement across models signals a genuine driver. Disagreement reveals where the relationship is linear, non-linear, or model-dependent.
+Rather than picking winners by gut feel, four different models were trained on the same survey data and **SHAP (SHapley Additive exPlanations)** was used to extract each model's view of driver importance. Agreement across models signals a genuine driver. Disagreement reveals where the relationship is linear, non-linear, or model-dependent.  [You can read about SHAP here.](https://shap.readthedocs.io/en/latest/)
 
 The SHAP comparison table produced a short, defensible list of **2 main drivers and 6 others**. The top 2, salary and career stage, were mentioned in the summary report, the rest are shown here.
 
