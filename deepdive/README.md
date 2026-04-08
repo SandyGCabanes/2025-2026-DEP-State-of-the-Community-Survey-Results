@@ -120,7 +120,7 @@ df_single_with_grps.csv
 | `datarole_Admin & Support` | ◐ Mid | ◐ Mid | ● High | Lasso highlights as sparse signal |
 | `how_long_in_salary` | ◐ Mid | ◯ Low | ◯ Low | RF-specific (non-linear plateau effect) |
 
-**Imporance of Multi-model work:** `sitework_WFH` scores 0.62 in LR SHAP but only 0.09 in RF SHAP. This difference is itself a finding — remote work has a clear *linear* relationship with satisfaction that tree-based models don't prioritize. Running only one model would have either over-emphasized or buried this driver.
+**Importance of Multi-model work:** `sitework_WFH` scores 0.62 in LR SHAP but only 0.09 in RF SHAP. This difference is itself a finding — remote work has a clear *linear* relationship with satisfaction that tree-based models don't prioritize. Running only one model would have either over-emphasized or buried this driver.
 
 **SHAP for OL skipped** Explainer not yet supported for tree/linear explainers on mord models, and KernelExplainer is computationally prohibitive at this feature count. 
 
