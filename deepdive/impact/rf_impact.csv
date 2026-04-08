@@ -1,0 +1,172 @@
+Driver,Score
+careerstg,0.13654078920022947
+how_long_in_salary,0.062115029187010305
+sizeteam,0.039380721477803055
+region_ph,0.039635089314980144
+age_grp,0.03603546390181372
+salary_broader,0.11193166300918783
+gender_Female,0.011911582143850052
+gender_LGBTQ+,0.0027402184528793065
+gender_Male,0.011542941003274158
+gender_Prefer not to say,0.001170772917544696
+educstat_Associate degree,0.006912233320125739
+educstat_Bachelor's or College Degree,0.012906366370530071
+educstat_Doctorate / PhD,0.0
+educstat_High school graduate,0.009303744513863357
+educstat_Master's degree,0.003302053368199885
+educstat_None of the above,0.00020628722208668873
+educstat_Prefer not to say,0.0005704993870477087
+educstat_Technical / Vocational,0.000480283870571076
+have_comp_degree_Have comp or data degree,0.005072795806150463
+have_comp_degree_Not have,0.005557482805824596
+comp_related_degree_Associate Computer Science,8.833486631070107e-05
+comp_related_degree_Associate Degree in Computer Science,5.3050404297492134e-05
+comp_related_degree_Associate in Computer Programming,3.812149137424352e-05
+comp_related_degree_BET Computer Engineering Technology,0.0
+comp_related_degree_BS Accountancy,0.0004450020171323487
+comp_related_degree_BS Applied Economics,2.187133838724057e-05
+comp_related_degree_BS Applied Mathematics,0.00900818607278
+comp_related_degree_BS Applied Physics,0.0010492966669230711
+comp_related_degree_BS Applied Statistics,0.0003683319436144906
+comp_related_degree_BS Astronomy Major in Meteorological Sciences,0.0
+comp_related_degree_BS Astronomy Major in Space Tech,0.0001951921492338531
+comp_related_degree_BS Biology,0.00014486195477927475
+comp_related_degree_BS Business Analytics,0.00016412707365253274
+comp_related_degree_BS Civil Engineering,0.00010543447331286624
+comp_related_degree_BS Computer Engineering,0.0054578598684564
+comp_related_degree_BS Computer Science,0.007447586256775817
+comp_related_degree_BS Data Science,0.002654549244513909
+comp_related_degree_BS Economics,3.144445634234812e-06
+comp_related_degree_BS Electrical Engineering,1.877029547646855e-05
+comp_related_degree_BS Electrical Engineering Technology,0.00047140674993993687
+comp_related_degree_BS Electronics and Communications Engineering,0.007465609900031558
+comp_related_degree_BS Financial Management,0.0009501287301137423
+comp_related_degree_BS Geodetic Engineering,9.939754754082378e-05
+comp_related_degree_BS Industrial Engineering,0.0013395873761763172
+comp_related_degree_BS Information Systems,0.001867936722052476
+comp_related_degree_BS Information Technology,0.010502839795760572
+comp_related_degree_BS Mathematics Major in Computer Science,0.0
+comp_related_degree_BS Mechatronics Engineering,0.0
+comp_related_degree_BS Multimedia Arts,0.0021838583458078475
+comp_related_degree_BS Statistics,7.841800211626815e-05
+comp_related_degree_BSBA Computer Applications,0.0003517233193560751
+comp_related_degree_BSED Technology and Livelihood Education,0.000499418953310031
+comp_related_degree_BSIT Major in Data Analytics,1.0623914636262288e-05
+comp_related_degree_Bachelor in Secondary Education,0.00019430030854753359
+comp_related_degree_Bachelor of Science in Business Admin Major in Management Information System,0.0
+comp_related_degree_Diploma in Information Technology,0.0
+comp_related_degree_MBA in Cybersecurity,0.0
+comp_related_degree_MS Data Science,1.925924693127739e-05
+comp_related_degree_MS Physics,0.00017538711857391392
+comp_related_degree_MS Unspecified,4.149910925298036e-05
+comp_related_degree_Masters in Logistics Management,0.0
+comp_related_degree_Not Applicable,0.005686131929359878
+comp_related_degree_PGD Computer Science and Information Technology,0.008642620432441234
+comp_related_degree_Post-Baccalaureate Degree in Information Technology,2.8702145851721064e-06
+comp_related_degree_Postgraduate Diploma in Data Analysis,6.734072007915587e-06
+employertype_Foreign employer,0.008731770372498966
+employertype_I'm an entrepreneur,0.000201917978998353
+employertype_I'm self-employed,0.002081198214679331
+employertype_Local employer,0.011433390883899365
+employertype_Multinational employer,0.007051940543580679
+employertype_None of the above,0.004598396233943242
+employertype_Public service,0.006308377101830969
+industry_Accounting,0.004336210755081015
+industry_Advertising,0.0006438372929599268
+industry_Agriculture,0.008821046015024295
+industry_Automation,0.0006215709366246732
+industry_Banking / Finance / Insurance,0.009382575615692824
+industry_Biotechnology,0.0
+industry_Career Shifter (Unspecified),0.001662845254233189
+industry_Casino,6.913208555565428e-05
+industry_Construction And Civil Engineering,0.0031595490182350465
+industry_Contractor Services,0.00044903401403429576
+industry_Dating App,0.00015560397581791286
+industry_E-Commerce,0.007429127163744709
+industry_Education,0.0037290141458300213
+industry_Electric Utility,0.0015023962703583412
+industry_Electronics,0.0003685010556447775
+industry_Energy,0.003208819115335097
+industry_Engineering,0.0024341669954192112
+industry_Engineering Consultancy,7.024908657298504e-05
+industry_Facility Management,0.0004352741875368978
+industry_Fintech,0.0036980977461557978
+industry_Fitness Tech,2.0343206489146008e-05
+industry_Gaming,3.447563776852833e-05
+industry_Government,0.0017979293918185615
+industry_Healthcare,0.004219117952700023
+industry_Industrial Automation,0.0
+industry_Instrumentation And Control,4.214804583457065e-05
+industry_It And Education,0.0062900811540944
+"industry_It, Bpo, And Business Services",0.010286895755256978
+industry_Logistics,0.0010231692772565215
+industry_Logistics And Delivery Services,0.002245464419935411
+industry_Logistics Supply Chain,0.0002469510329108898
+industry_Manpower Agency,0.0021216679082161766
+industry_Manufacturing,0.010326271570388441
+industry_Media,0.005315430143992218
+industry_Mining,0.00018721141836983789
+industry_Ngo,0.0003063332785086927
+industry_None Of The Above,0.002582661361895992
+industry_Own Business/ Consultancy/Freelance,9.803612515559713e-05
+industry_Process Control Systems,4.688085614545625e-05
+industry_Procurement,8.944970126424118e-05
+industry_Real Estate,0.002447148747218833
+industry_Recruitment Firm,0.00016988076473159458
+industry_Research,0.0009682090956321071
+industry_Retail,0.006322728021361451
+industry_Self-Employed,0.00045503828775720565
+industry_Shipping,0.000127221303190724
+industry_Systems Integrators,0.0007923084279815836
+industry_Technology And Real Estate,0.00010126007444050129
+industry_Telecommunication,0.0037503754194719934
+industry_Tourism,5.737301234088701e-05
+industry_Transportation Services,0.00013666452274750947
+industry_Utility,0.00014442006160613472
+typework_Contract fixed timeline,0.003795841915728755
+typework_Freelance,0.002421648889536144
+typework_Full-time,0.007372838823789845
+typework_Internship,0.0
+typework_None of the above,0.000999410594184918
+typework_Part-time,0.0013641171733815149
+sitework_Hybrid,0.0069214052769708
+sitework_Mostly onsite,0.009776816453669027
+sitework_Mostly work from home/ fully remote,0.012019568378534715
+sitework_None of the above,0.0005013065680854238
+shift_schedule_Day shift,0.011153776590111932
+shift_schedule_Flexible,0.009114983566883407
+shift_schedule_Mid shift,0.005473771724654845
+shift_schedule_Night shift,0.00923351766017317
+shift_schedule_Not Applicable,0.005163649460814657
+datarole_Admin & Support Role,0.012893971080478978
+datarole_Consulting & Freelance,0.0018317346832521892
+datarole_Content Related,0.0003876815180571178
+datarole_Customer Service & Operations,0.004736596787193177
+datarole_Data Analysis & Insights,0.009365992505496164
+datarole_Data Engineering,0.004459399126258424
+datarole_Data Processing & Entry,0.005419256081313769
+datarole_Data Science,0.0012670293844578525
+datarole_Education & Learning,0.0021967403216282383
+datarole_Engineering,0.004523136439654097
+datarole_Legal & Public Affairs,0.0
+datarole_Management & Leadership,0.0013984761509078238
+datarole_Marketing & Sales,0.00046443123017919847
+datarole_None Of The Above,0.0014826025802324066
+datarole_Not Applicable,0.0022655452679765237
+datarole_Research,0.006340773930395802
+datarole_Software Engineering,0.0044119651971149835
+datarole_Technical Support & It Operations,0.003642184600974719
+side_gig_No side gig p12m,0.006311424716507078
+side_gig_Side gig p12m,0.005570172081045801
+"ai_work_No, and I don't plan to.",0.004068619080694065
+"ai_work_No, but I plan to soon.",0.009813225679239139
+ai_work_None of the above,0.003539783516733712
+"ai_work_Yes, I use AI tools DAILY for work.",0.017652109111599562
+"ai_work_Yes, I use AI tools MONTHLY or LESS frequently for work.",0.017752176132428098
+"ai_work_Yes, I use AI tools WEEKLY for work.",0.009805811169975753
+"ai_study_No, and I don't plan to.",0.0020334390759316444
+"ai_study_No, but I plan to soon.",0.011252870015578014
+ai_study_None of the above,0.00043008530458743565
+"ai_study_Yes, I use AI tools DAILY for study.",0.02574592618073863
+"ai_study_Yes, I use AI tools MONTHLY or LESS frequently for study.",0.004746725180763415
+"ai_study_Yes, I use AI tools WEEKLY for study",0.008370785132148192

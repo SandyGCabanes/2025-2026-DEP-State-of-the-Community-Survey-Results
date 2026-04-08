@@ -1,0 +1,64 @@
+Driver,Score,AbsScore
+careerstg_Career shifter - currently working in a non-data-related role,-0.5396284567620684,0.5396284567620684
+salary_broader,0.5263845028421438,0.5263845028421438
+"ai_work_Yes, I use AI tools MONTHLY or LESS frequently for work.",-0.18009234177978367,0.18009234177978367
+"ai_study_No, but I plan to soon.",-0.13291398450171102,0.13291398450171102
+sizeteam,0.1073670267738481,0.1073670267738481
+datarole_Consulting & Freelance,0.08352349419229636,0.08352349419229636
+sitework_Mostly work from home/ fully remote,0.07248794119989795,0.07248794119989795
+shift_schedule_Night shift,-0.06283082846874195,0.06283082846874195
+shift_schedule_Flexible,0.06014879448291303,0.06014879448291303
+sitework_Mostly onsite,-0.028522260127972283,0.028522260127972283
+"ai_study_Yes, I use AI tools DAILY for study.",0.025734231136721023,0.025734231136721023
+how_long_in_salary_5.0,-0.02479637030062219,0.02479637030062219
+datarole_Data Analysis & Insights,0.018553830750117548,0.018553830750117548
+side_gig_No side gig p12m,-0.010844775480974964,0.010844775480974964
+datarole_Data Science,0.010179449494402687,0.010179449494402687
+datarole_Admin & Support Role,-0.0019649247173592335,0.0019649247173592335
+datarole_Data Processing & Entry,-0.0007383583412565248,0.0007383583412565248
+side_gig_Side gig p12m,5.0572436708903925e-17,5.0572436708903925e-17
+typework_Contract fixed timeline,0.0,0.0
+typework_Part-time,0.0,0.0
+employertype_Public service,-0.0,0.0
+employertype_Multinational employer,-0.0,0.0
+employertype_Local employer,0.0,0.0
+careerstg_Professional - employed full-time in a data-related role,0.0,0.0
+employertype_Foreign employer,0.0,0.0
+employertype_I'm an entrepreneur,-0.0,0.0
+employertype_I'm self-employed,-0.0,0.0
+have_comp_degree_Have comp or data degree,0.0,0.0
+have_comp_degree_Not have,-0.0,0.0
+careerstg_Freelance - working independently in a data-related role,0.0,0.0
+careerstg_Government - employed in a data-related role in the public sector,0.0,0.0
+shift_schedule_Day shift,0.0,0.0
+how_long_in_salary_7.0,-0.0,0.0
+how_long_in_salary_6.0,-0.0,0.0
+how_long_in_salary_4.0,-0.0,0.0
+how_long_in_salary_2.0,0.0,0.0
+how_long_in_salary_3.0,0.0,0.0
+sitework_Hybrid,0.0,0.0
+how_long_in_salary_1.0,0.0,0.0
+typework_Full-time,-0.0,0.0
+typework_Freelance,-0.0,0.0
+typework_Internship,0.0,0.0
+datarole_Data Engineering,0.0,0.0
+datarole_Customer Service & Operations,-0.0,0.0
+datarole_Content Related,-0.0,0.0
+shift_schedule_Not Applicable,-0.0,0.0
+shift_schedule_Mid shift,-0.0,0.0
+datarole_Marketing & Sales,0.0,0.0
+datarole_Management & Leadership,-0.0,0.0
+datarole_Legal & Public Affairs,0.0,0.0
+datarole_Engineering,-0.0,0.0
+datarole_Education & Learning,-0.0,0.0
+datarole_Technical Support & It Operations,0.0,0.0
+datarole_Not Applicable,-0.0,0.0
+datarole_Research,-0.0,0.0
+"ai_work_No, but I plan to soon.",0.0,0.0
+"ai_work_No, and I don't plan to.",0.0,0.0
+datarole_Software Engineering,0.0,0.0
+"ai_work_Yes, I use AI tools DAILY for work.",0.0,0.0
+"ai_study_No, and I don't plan to.",0.0,0.0
+"ai_work_Yes, I use AI tools WEEKLY for work.",-0.0,0.0
+"ai_study_Yes, I use AI tools MONTHLY or LESS frequently for study.",-0.0,0.0
+"ai_study_Yes, I use AI tools WEEKLY for study",-0.0,0.0

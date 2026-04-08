@@ -1,0 +1,45 @@
+Driver,Score,AbsScore
+sizeteam,0.12,0.12
+salary_broader,0.58,0.58
+have_comp_degree_Have comp or data degree,0.05,0.05
+have_comp_degree_Not have,-0.05,0.05
+careerstg_Career shifter - currently working in a non-data-related role,-1.04,1.04
+careerstg_Freelance - working independently in a data-related role,0.38,0.38
+careerstg_Government - employed in a data-related role in the public sector,0.69,0.69
+careerstg_Professional - employed full-time in a data-related role,-0.04,0.04
+employertype_Foreign employer,0.31,0.31
+employertype_Local employer,0.27,0.27
+employertype_Multinational employer,0.1,0.1
+employertype_Public service,-0.3,0.3
+typework_Contract fixed timeline,-0.15,0.15
+typework_Freelance,-0.5,0.5
+typework_Full-time,-0.11,0.11
+sitework_Hybrid,0.93,0.93
+sitework_Mostly onsite,0.63,0.63
+sitework_Mostly work from home/ fully remote,1.19,1.19
+how_long_in_salary_1.0,0.21,0.21
+how_long_in_salary_2.0,0.12,0.12
+how_long_in_salary_3.0,-0.04,0.04
+how_long_in_salary_4.0,-0.15,0.15
+how_long_in_salary_5.0,-0.33,0.33
+shift_schedule_Day shift,0.15,0.15
+shift_schedule_Flexible,0.37,0.37
+shift_schedule_Mid shift,-0.23,0.23
+shift_schedule_Night shift,-0.34,0.34
+shift_schedule_Not Applicable,0.05,0.05
+datarole_Admin & Support Role,-0.26,0.26
+datarole_Data Analysis & Insights,0.29,0.29
+datarole_Data Engineering,0.17,0.17
+datarole_Data Processing & Entry,-0.38,0.38
+datarole_Software Engineering,-0.02,0.02
+datarole_Technical Support & It Operations,0.06,0.06
+side_gig_No side gig p12m,-0.14,0.14
+side_gig_Side gig p12m,0.14,0.14
+"ai_work_No, but I plan to soon.",0.54,0.54
+"ai_work_Yes, I use AI tools DAILY for work.",0.25,0.25
+"ai_work_Yes, I use AI tools MONTHLY or LESS frequently for work.",-0.37,0.37
+"ai_work_Yes, I use AI tools WEEKLY for work.",0.26,0.26
+"ai_study_No, but I plan to soon.",-0.82,0.82
+"ai_study_Yes, I use AI tools DAILY for study.",0.01,0.01
+"ai_study_Yes, I use AI tools MONTHLY or LESS frequently for study.",-0.24,0.24
+"ai_study_Yes, I use AI tools WEEKLY for study",-0.25,0.25

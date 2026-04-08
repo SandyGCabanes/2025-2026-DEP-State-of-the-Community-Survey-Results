@@ -1,0 +1,64 @@
+Driver,Score,AbsScore
+sizeteam,0.18,0.18
+salary_broader,0.59,0.59
+have_comp_degree_Have comp or data degree,0.03,0.03
+have_comp_degree_Not have,-0.03,0.03
+careerstg_Career shifter - currently working in a non-data-related role,-0.34,0.34
+careerstg_Freelance - working independently in a data-related role,0.14,0.14
+careerstg_Government - employed in a data-related role in the public sector,0.25,0.25
+careerstg_Professional - employed full-time in a data-related role,0.11,0.11
+employertype_Foreign employer,-0.01,0.01
+employertype_I'm an entrepreneur,-0.09,0.09
+employertype_I'm self-employed,-0.05,0.05
+employertype_Local employer,0.01,0.01
+employertype_Multinational employer,-0.09,0.09
+employertype_Public service,-0.13,0.13
+typework_Contract fixed timeline,-0.17,0.17
+typework_Freelance,-0.26,0.26
+typework_Full-time,-0.23,0.23
+typework_Internship,-0.0,0.0
+typework_Part-time,-0.08,0.08
+sitework_Hybrid,1.09,1.09
+sitework_Mostly onsite,0.93,0.93
+sitework_Mostly work from home/ fully remote,1.25,1.25
+how_long_in_salary_1.0,-0.14,0.14
+how_long_in_salary_2.0,-0.15,0.15
+how_long_in_salary_3.0,-0.25,0.25
+how_long_in_salary_4.0,-0.33,0.33
+how_long_in_salary_5.0,-0.37,0.37
+how_long_in_salary_6.0,-0.13,0.13
+how_long_in_salary_7.0,-0.03,0.03
+shift_schedule_Day shift,0.07,0.07
+shift_schedule_Flexible,0.1,0.1
+shift_schedule_Mid shift,-0.06,0.06
+shift_schedule_Night shift,-0.14,0.14
+shift_schedule_Not Applicable,0.02,0.02
+datarole_Admin & Support Role,-0.15,0.15
+datarole_Consulting & Freelance,0.15,0.15
+datarole_Content Related,-0.08,0.08
+datarole_Customer Service & Operations,0.0,0.0
+datarole_Data Analysis & Insights,0.04,0.04
+datarole_Data Engineering,-0.02,0.02
+datarole_Data Processing & Entry,-0.16,0.16
+datarole_Data Science,0.06,0.06
+datarole_Education & Learning,-0.04,0.04
+datarole_Engineering,-0.08,0.08
+datarole_Legal & Public Affairs,-0.0,0.0
+datarole_Management & Leadership,-0.12,0.12
+datarole_Marketing & Sales,-0.03,0.03
+datarole_Not Applicable,-0.09,0.09
+datarole_Research,-0.12,0.12
+datarole_Software Engineering,-0.04,0.04
+datarole_Technical Support & It Operations,-0.04,0.04
+side_gig_No side gig p12m,-0.06,0.06
+side_gig_Side gig p12m,0.06,0.06
+"ai_work_No, and I don't plan to.",0.24,0.24
+"ai_work_No, but I plan to soon.",0.54,0.54
+"ai_work_Yes, I use AI tools DAILY for work.",0.78,0.78
+"ai_work_Yes, I use AI tools MONTHLY or LESS frequently for work.",0.29,0.29
+"ai_work_Yes, I use AI tools WEEKLY for work.",0.61,0.61
+"ai_study_No, and I don't plan to.",-0.02,0.02
+"ai_study_No, but I plan to soon.",-0.34,0.34
+"ai_study_Yes, I use AI tools DAILY for study.",-0.13,0.13
+"ai_study_Yes, I use AI tools MONTHLY or LESS frequently for study.",-0.16,0.16
+"ai_study_Yes, I use AI tools WEEKLY for study",-0.22,0.22

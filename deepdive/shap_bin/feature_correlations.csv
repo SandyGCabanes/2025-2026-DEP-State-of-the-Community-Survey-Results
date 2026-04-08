@@ -1,0 +1,9 @@
+,careerstg_Career shifter - currently working in a non-data-related role,salary_broader,sizeteam,"ai_study_Yes, I use AI tools DAILY for study.",sitework_Mostly work from home/ fully remote,how_long_in_salary_4.0,datarole_Admin & Support Role,"ai_work_Yes, I use AI tools DAILY for work."
+careerstg_Career shifter - currently working in a non-data-related role,1.0,-0.3,-0.25,0.04,-0.13,-0.02,0.14,-0.1
+salary_broader,-0.3,1.0,0.14,0.09,0.27,0.05,-0.12,0.22
+sizeteam,-0.25,0.14,1.0,-0.04,0.06,0.06,-0.12,0.05
+"ai_study_Yes, I use AI tools DAILY for study.",0.04,0.09,-0.04,1.0,0.07,0.05,0.01,0.51
+sitework_Mostly work from home/ fully remote,-0.13,0.27,0.06,0.07,1.0,-0.03,-0.01,0.11
+how_long_in_salary_4.0,-0.02,0.05,0.06,0.05,-0.03,1.0,-0.05,0.01
+datarole_Admin & Support Role,0.14,-0.12,-0.12,0.01,-0.01,-0.05,1.0,-0.04
+"ai_work_Yes, I use AI tools DAILY for work.",-0.1,0.22,0.05,0.51,0.11,0.01,-0.04,1.0
