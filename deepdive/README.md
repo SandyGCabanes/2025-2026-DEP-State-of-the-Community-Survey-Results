@@ -1,19 +1,19 @@
-# Satisfaction Drivers Analysis
+# Machine Learning Analysis of Satisfaction Drivers in 2026 Survey Data
 ### DEP Annual Survey 2026 · Philippine Data Community · n = 1,861
 
 ---
 
 ## Problem: Too Many Significant Findings
 
-Cross-tabulating **job satisfaction** (Low / Mid / High) against every individual survey question produced a flood of statistically significant results. Too many variables showed some difference across satisfaction groups — salary band, work setup, career stage, AI tool usage, team size, and more.
+Cross-tabulating **job satisfaction** (Low / Mid / High) against every individual survey question produced a flood of statistically significant results. Too many variables showed some difference across satisfaction groups — salary band, work setup, career stage, AI tool usage, team size, and more. Almost everything seemed important. To prioritize the findings objectively, this method applied several machine learning models and compared their results using SHAP (see below.)
 
-The crosstab approach answers *"Is this variable related to satisfaction?"* but not *"How much does it actually matter, relative to everything else?"* With dozens of candidates all flagging as significant, there was no principled way to decide what to write about.
+The crosstab approach alone answers *"Is this variable related to satisfaction?"* but not *"How much does it actually matter, relative to everything else?"* With dozens of candidates all flagging as significant, there was no principled way to decide what to write about.
 
 ---
 
 ## Solution: Multi-Model SHAP Attribution
 
-Rather than picking winners by gut feel, four different models were trained on the same survey data and **SHAP (SHapley Additive exPlanations)** was used to extract each model's view of driver importance. Agreement across models signals a genuine driver. Disagreement reveals where the relationship is linear, non-linear, or model-dependent.  [You can read about SHAP here.](https://shap.readthedocs.io/en/latest/)
+Rather than picking winners by gut feel, four different models were trained on the same survey data and **SHAP (SHapley Additive exPlanations)** was used to extract each model's view of driver importance. When different models consistently rank a factor as important, we can be more confident that it plays a meaningful role in predicting satisfaction.  When the rankings differ, it suggests that different models capture different patterns in the data. This provides additional insights rather than a single answer.  [You can read about SHAP here.](https://shap.readthedocs.io/en/latest/)
 
 The SHAP comparison table produced a short, defensible list of **2 main drivers and 6 others**. The top 2, salary and career stage, were mentioned in the summary report, the rest are shown here.
 
@@ -82,8 +82,9 @@ df_single_with_grps.csv
 │  Full heatmap  ──►  heatmap_full.png  (all features)            │
 │  Small heatmap ──►  heatmap_small.png (top 8 drivers only)      │
 │                                                                 │
-│  Result: no strong inter-correlations → drivers are             │
-│          independent signals, not redundant duplicates          │
+│  Result: the strongest drivers showed little overlap with       │
+│          one another. This suggests each contributes its own    │
+│          information instead of repeating the same pattern      │
 └───────────────────────┬─────────────────────────────────────────┘
                         │
                         ▼
@@ -107,7 +108,7 @@ df_single_with_grps.csv
 
 ---
 
-## Key Findings from SHAP Comparison
+## What the Different Models Agreed On
 
 | Driver | RF | LR | Lasso | Signal Type |
 |---|---|---|---|---|
@@ -120,7 +121,7 @@ df_single_with_grps.csv
 | `datarole_Admin & Support` | ◐ Mid | ◐ Mid | ● High | Lasso highlights as sparse signal |
 | `how_long_in_salary` | ◐ Mid | ◯ Low | ◯ Low | RF-specific (non-linear plateau effect) |
 
-**Importance of Multi-model work:** `sitework_WFH` scores 0.62 in LR SHAP but only 0.09 in RF SHAP. This difference is itself a finding — remote work has a clear *linear* relationship with satisfaction that tree-based models don't prioritize. Running only one model would have either over-emphasized or buried this driver.
+**Importance of Multi-model work:** `sitework_WFH` scores 0.62 in LR SHAP but only 0.09 in RF SHAP. This difference is itself a finding. Remote work has a clear *linear* relationship with satisfaction. Random Forest gave it much less emphasis. Running only one model would have either over-emphasized or buried this driver.  Looking at multiple models revealed something we would have missed with only one approach.   Comparing both perspectives provided a more balanced interpretation.
 
 **SHAP for OL skipped** Explainer not yet supported for tree/linear explainers on mord models, and KernelExplainer is computationally prohibitive at this feature count. 
 
