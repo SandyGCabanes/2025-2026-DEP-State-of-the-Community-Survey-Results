@@ -123,7 +123,7 @@ df_single_with_grps.csv
 
 **Importance of Multi-model work:** `sitework_WFH` scores 0.62 in LR SHAP but only 0.09 in RF SHAP. This difference is itself a finding. Remote work has a clear *linear* relationship with satisfaction. Random Forest gave it much less emphasis. Running only one model would have either over-emphasized or buried this driver.  Looking at multiple models revealed something we would have missed with only one approach.   Comparing both perspectives provided a more balanced interpretation.
 
-**SHAP for OL skipped** Explainer not yet supported for tree/linear explainers on mord models, and KernelExplainer is computationally prohibitive at this feature count. 
+**SHAP for OL skipped** Explainer not yet supported for tree/linear explainers on mord models (multiclass and ordinal regression), and KernelExplainer requires very high computational processing resources at this feature count. 
 
 ---
 
