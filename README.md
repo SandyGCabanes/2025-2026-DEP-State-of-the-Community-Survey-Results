@@ -1,14 +1,14 @@
 # 2025–2026 DEP State of the Community Survey Results
-## HTML, Python, Excel, Tableau(to follow)
+## Python, Excel, HTML, Tableau
 
 
-End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,861 responses** from the Philippine data and tech community, including career shifters, students and current data professionals. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.
+End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,861 responses** from the Philippine data and tech community, including career shifters, students and current data professionals. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.  [Deepdive section](/deepdive) includes machine learning methods to derive key drivers of job satisfaction.  [Report section](/report) includes all the excel tables with crosstabs and round-robin significance testing at 95% c.l.
 
 **Analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
 
 ---
 
-## Live Report
+## Live Report  (via Github Pages)
 
 | Page | Description |
 |---|---|
@@ -23,7 +23,6 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 
 ## Objectives
 
-- Track year-over-year changes in community composition, skills, and compensation
 - Answer common community questions: salary benchmarks by role, relevant skills, value of advanced degrees
 - Guide future DEP programs and initiatives based on data-driven findings
 - This year's additions: AI adoption, job satisfaction, shift schedules, and online activity attendance
@@ -36,7 +35,7 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 |---|---|
 | Data collection | Google Forms, Google Sheets |
 | Data processing | Excel (pivot tables)|
-| Data cleaning & pipeline | Python (pandas, Gemini API call, DuckDB, SQLite)  - see [dep-survey-data-cleaning-pipeline](link)|
+| Data cleaning & pipeline | Python (pandas, Gemini API call, DuckDB, SQLite)  - see [dep-survey-data-cleaning-pipeline](https://github.com/SandyGCabanes/DEP-Survey-Data-Pipeline)|
 | Privacy protection | R and Python: Bayesian network anonymization prior to public data release |
 | Visualization | Python, Plotly (interactive charts), geopy, folium (location map) |
 | Report delivery | GitHub Pages (HTML, free and open-source) |
