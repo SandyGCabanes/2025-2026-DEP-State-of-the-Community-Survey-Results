@@ -2,7 +2,7 @@
 ## Python, Excel, HTML, Tableau
 
 
-End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,861 responses** from the Philippine data and tech community, including career shifters, students and current data professionals. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.  [Deepdive section](/deepdive) includes machine learning methods to derive key drivers of job satisfaction.  [Report section](/report) includes all the excel tables with crosstabs and round-robin significance testing at 95% c.l.
+End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,861 responses** from the Philippine data and tech community, including career shifters, students and current data professionals. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.  [Deepdive section](/deepdive#readme) includes machine learning methods to derive key drivers of job satisfaction.  [Report section](/report) includes all the excel tables with crosstabs and round-robin significance testing at 95% c.l.
 
 **Analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
 
