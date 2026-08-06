@@ -10,11 +10,13 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 
 For backend cleaning and data processing after raw data download, check out the [python data pipeline here](https://github.com/SandyGCabanes/DEP-Survey-Data-Pipeline).
 
+For the Tableau report, click [here.](https://public.tableau.com/views/DEPSurvey2026/OURWORK)
+
 **Analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
 
 ---
 
-## Live Report  (via Github Pages)
+## Live Report Using HTML  (via Github Pages)
 
 | Page | Description |
 |---|---|
