@@ -511,6 +511,61 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   .sat-row-label { width: 100px; font-size: 0.72rem; }
   h2 { font-size: 1.15rem; }
 }
+
+/* ── Image Modal ─────────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 42, 71, 0.82);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--white);
+  border-radius: 6px;
+  border-top: 4px solid var(--gold);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  padding: 1.2rem 1.4rem;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.modal-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Courier New', monospace;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.modal-box img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--navy); }
   </style>
 </head>
 <body>
@@ -519,7 +574,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">DEP Annual Survey 2026 · Drivers Analysis · Sandy G. Cabanes</div>
-    <h1>What <em>survey items</em> drive job satisfaction<br>in the Philippine data community?</h1>
+    <h1>What <em>factors</em> drive job satisfaction<br>in the Data Engineering Pilipinas Community?</h1>
     <p class="hero-sub">Cross-tabs gave us dozens of significant findings. This analysis used four machine learning models and used SHAP to separate the real drivers from the noise. Here is what the models agreed on — and where they disagreed.</p>
     <div class="hero-meta">
       <span class="hero-meta-item"><strong>n = 1,861</strong> respondents</span>
@@ -533,13 +588,13 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <!-- ── STICKY CTA BAR ─────────────────────────────────────────── -->
 <div class="cta-bar">
   <div class="cta-bar-inner">
-    <a class="btn btn-primary" href="satisfaction_drivers.html" target="_blank">
+    <a class="btn btn-primary" href="https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/docs/web_report_htmls/satisfaction_drivers.html" target="_blank">
        Read full findings
     </a>
     <a class="btn btn-secondary" href="https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/tree/main/deepdive#readme" target="_blank">
       GitHub · Drivers README
     </a>
-    <a class="btn btn-ghost" href="https://public.tableau.com" target="_blank">
+    <a class="btn btn-ghost" href="https://public.tableau.com/app/profile/sandy.g.cabanes/viz/DEPSurvey2026/OURWORK" target="_blank">
       Tableau dashboard
     </a>
     <span class="cta-label">DEP Survey 2026</span>
@@ -738,6 +793,14 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   </tbody>
 </table>
 
+<!-- Beeswarm trigger buttons -->
+<p style="margin-top:1.2rem; font-size:0.88rem; color:var(--text-muted);">Click to view the SHAP beeswarm plot for each model — each dot is one respondent, colored by feature value, positioned by its SHAP contribution to satisfaction.</p>
+<div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin:0.8rem 0 1.6rem;">
+  <button class="btn btn-secondary" onclick="openImage('rf')">View RF beeswarm</button>
+  <button class="btn btn-secondary" onclick="openImage('lr')">View LR beeswarm</button>
+  <button class="btn btn-secondary" onclick="openImage('lasso')">View Lasso beeswarm</button>
+</div>
+
 <!-- Key divergence -->
 <h2>The model divergence also gives insights</h2>
 
@@ -817,6 +880,44 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 </div>
 
 </div><!-- /page-wrap -->
+
+<!-- ── IMAGE MODAL (Snippet 2) ────────────────────────────────── -->
+<div class="modal-overlay" id="image-modal" onclick="closeImage(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-title" id="modal-title"></div>
+    <img id="modal-img" src="" alt="SHAP beeswarm plot">
+  </div>
+</div>
+
+<!-- ── IMAGE MODAL SCRIPT (Snippet 3) ────────────────────────── -->
+<script>
+const imagePlots = {
+  rf:    { title: "SHAP Beeswarm — Random Forest",     url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_rf_beeswarm.png" },
+  lr:    { title: "SHAP Beeswarm — Linear Regression", url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_lr_beeswarm.png" },
+  lasso: { title: "SHAP Beeswarm — Lasso Regression",  url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_lasso_beeswarm.png" }
+};
+
+function openImage(key) {
+  const plot = imagePlots[key];
+  document.getElementById('modal-img').src = plot.url;
+  document.getElementById('modal-title').textContent = plot.title;
+  document.getElementById('image-modal').classList.add('open');
+  document.addEventListener('keydown', escClose);
+}
+
+function closeImage(event) {
+  if (event.target === document.getElementById('image-modal')) closeModal();
+}
+
+function closeModal() {
+  document.getElementById('image-modal').classList.remove('open');
+  document.getElementById('modal-img').src = '';
+  document.removeEventListener('keydown', escClose);
+}
+
+function escClose(e) { if (e.key === 'Escape') closeModal(); }
+</script>
 
 </body>
 </html>
