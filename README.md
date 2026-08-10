@@ -1,5 +1,5 @@
 # 2025–2026 DEP State of the Community Survey Results
-## Python, Excel, HTML, Tableau
+## Python, Excel, HTML, Tableau, Machine Learning
 
 
 End-to-end survey analysis and interactive report for [Data Engineering Pilipinas](https://dataengineering.ph/), covering **1,861 responses** from the Philippine data and tech community, including career shifters, students and current data professionals. Built with Python, Plotly, and GitHub Pages. Covers demographic profiling, compensation benchmarking, tools landscape, and learning behavior across **5 interactive report pages**.  
@@ -26,6 +26,7 @@ For the Tableau report, click [here.](https://public.tableau.com/views/DEPSurvey
 | [Compensation](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/compensation_combined_smallmultiples.html) | Salary profiles by role, industry, and experience |
 | [Tools & Tech](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/tools_tech.html) | Most-used tools, platforms, and technologies |
 | [Learning & Community](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/learning_community.html) | Learning habits, program attendance, AI adoption |
+| [Drivers of Job Satisfaction](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/satisfaction_drivers.html) | Key drivers using machine learning and Shapley values |
 
 ---
 
