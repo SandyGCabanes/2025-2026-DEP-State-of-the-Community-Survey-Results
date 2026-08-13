@@ -620,9 +620,9 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <!-- Solution -->
 <h2>  Solution: multi-model SHAP attribution</h2>
 
-<p>This analysis trained five models on the same dataset and applied SHAP (SHapley Additive exPlanations) to each. SHAP assigns every feature a contribution score for each prediction — how much did this variable move the satisfaction score, on average, across all respondents? This is the same principle as individual-level attribution in traditional Market Research, now made computationally accessible through Python.</p>
+<p>This analysis trained five models on the same dataset and applied SHAP (SHapley Additive exPlanations) to each. SHAP assigns every feature a contribution score for each prediction, i.e., how much did this variable move the satisfaction score, on average, across all respondents? This is the same principle as individual-level attribution in Market Research using SAS, now made computationally accessible through Python.</p>
 
-<p>A driver that shows high SHAP importance in a Random Forest <em>and</em> in a Lasso regression is a genuine driver. One that only appears in a linear model but not in the tree-based model is telling us something about the <em>nature</em> of the relationship — linear vs. non-linear — not just its existence. LightGBM was run separately as a validation step on the top 20 features, confirming whether the driver ranking holds under a gradient boosting method with a completely different training mechanic.</p>
+<p>A driver that shows high SHAP importance in a Random Forest <em>and</em> in a Lasso regression is a genuine driver. One that only appears in a linear model but not in the tree-based model is telling us something about the <em>nature</em> of the relationship (linear vs. non-linear)  not just its existence. LightGBM was run separately as a validation step on the top 20 features, confirming whether the driver ranking holds under a gradient boosting method with a completely different training mechanic.</p>
 
 <!-- Pipeline -->
 <h2>Pipeline at a glance</h2>
@@ -682,7 +682,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <!-- The findings -->
 <h2>Common drivers among models</h2>
 
-<p>The SHAP comparison table produced a short, defensible list of 8 drivers. Two appeared as high-importance across all three SHAP models — these are the obvious leads.</p>
+<p>The SHAP comparison table produced a short, defensible list of 8 drivers. Two appeared as high-importance across all three SHAP models. These are the obvious leads.</p>
 
 <div class="stat-strip">
   <div class="stat-card">
@@ -732,7 +732,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <!-- Driver table -->
 <h2>The key drivers — cross-model view</h2>
 
-<p>The table below shows each driver's SHAP signal strength across the four models where SHAP was computed. LightGBM was run on the top 20 features only — features outside that set are marked —. Divergence between RF and LR tells us something about the <em>nature</em> of the relationship.</p>
+<p>The table below shows each driver's SHAP signal strength across the four models where SHAP was computed. LightGBM was run on the top 20 features, since prework was already done using the other models.  Features outside that set are marked '—'. The difference between RF and LR tells us something about the <em>nature</em> of the relationship.</p>
 
 <table class="driver-table">
   <thead>
@@ -828,7 +828,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 
 <div class="callout-card sky">
   <div class="callout-label">Insight · Career Shifter and Salary — universal across all five models</div>
-  <strong>careerstg_Career Shifter</strong> and <strong>salary_broader</strong>(grouped salary bands) are the only two drivers that score high across all four SHAP models — two tree-based methods with different mechanics (RF bagging vs. LightGBM boosting) and two linear methods with different penalties. When independent models converge on the same findings, those are  clear drivers.
+  <strong>careerstg_Career Shifter</strong> and <strong>salary_broader</strong>(grouped salary bands) are the only two drivers that score high across all four SHAP models. Two tree-based methods with different mechanics (RF bagging vs. LightGBM boosting) and two linear methods with different penalties. When independent models converge on the same findings, those are  clear drivers.
 </div>
 
 <div class="callout-card sky">
@@ -838,7 +838,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 
 <div class="callout-card sky">
   <div class="callout-label">Insight · AI use at work</div>
-  A similar pattern appears for <strong>ai_work_Daily</strong>. High-satisfaction respondents are 20 percentage points more likely to use AI tools daily at work than low-satisfaction respondents (67.1% vs. 47.4%). The linear models detect this cleanly. Tree-based models prioritize salary and career stage as stronger splits. AI daily use at work may be a proxy for workplace culture — environments that encourage AI adoption may indirectly drive higher satisfaction, not the usage of AI per se.
+  A similar pattern appears for <strong>ai_work_Daily</strong>. High-satisfaction respondents are 20 percentage points more likely to use AI tools daily at work than low-satisfaction respondents (67.1% vs. 47.4%). The linear models detect this cleanly. Tree-based models prioritize salary and career stage as stronger splits. AI daily use at work may be a proxy for workplace culture, i.e., environments that encourage AI adoption may indirectly drive higher satisfaction, not the usage of AI per se.
 </div>
 
 <!-- Correlation check -->
@@ -861,7 +861,7 @@ The plotly HTML dashboards are available here: <a href="https://sandygcabanes.gi
 <!-- Further reading -->
 <h2>Further reading</h2>
 
-<p>This survey captures what the data community itself reported. It cannot capture the full scope of satisfaction drivers — autonomy, advancement opportunities, psychological safety, and management quality are equally real but harder to measure in a structured survey. The literature below covers these dimensions well.</p>
+<p>This survey captures what the data community itself reported. It cannot capture the full scope of satisfaction drivers, e.g., autonomy, advancement opportunities, psychological safety, and management quality.  Those are equally real but harder to measure in a structured survey. The literature below covers these dimensions well.</p>
 
 <ul>
   <li><a href="https://www.bain.com/insights/the-chemistry-of-engagement-ceo-forum/" target="_blank">Bain — The chemistry of engagement</a>: strong sense of purpose, ample autonomy, opportunities for growth, and a sense of affiliation as the core ingredients of employee engagement.</li>
