@@ -575,12 +575,12 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   <div class="hero-inner">
     <div class="hero-eyebrow">DEP Annual Survey 2026 · Drivers Analysis · Sandy G. Cabanes</div>
     <h1>What <em>factors</em> drive job satisfaction<br>in the Data Engineering Pilipinas Community?</h1>
-    <p class="hero-sub">Cross-tabs gave us dozens of significant findings. This analysis used four machine learning models and used SHAP to separate the real drivers from the noise. Here is what the models agreed on — and where they disagreed.</p>
+    <p class="hero-sub">Cross-tabs gave us dozens of significant findings. This analysis used four machine learning models and used SHAP to separate the real drivers from the noise. Here is what the models agreed on, and where they disagreed.</p>
     <div class="hero-meta">
       <span class="hero-meta-item"><strong>n = 1,861</strong> respondents</span>
       <span class="hero-meta-item"><strong>95%</strong> confidence</span>
       <span class="hero-meta-item"><strong>96.6%</strong> Philippines-based</span>
-      <span class="hero-meta-item"><strong>4 models</strong> · RF · OL · LR · Lasso</span>
+      <span class="hero-meta-item"><strong>5 models</strong> · RF · OL · LR · Lasso · LightGBM</span>
     </div>
   </div>
 </div>
@@ -608,21 +608,21 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <!-- Problem -->
 <h2>Problem: too many significant findings</h2>
 
-<p>The survey cross-tab compared three satisfaction groups: Low (1–4), Mid (5–7), and High (8–10), against every individual question in the survey. A lot of variables showed a statistically significant difference somewhere. Salary band. Work setup. Career stage. AI tool usage. Team size. Role type. Time in current salary. Many more. </p>
+<p>The survey cross-tab compared three satisfaction groups: Low (1–4), Mid (5–7), and High (8–10), against every individual question in the survey. A lot of variables showed a statistically significant difference somewhere. Salary band. Work setup. Career stage. AI tool usage. Team size. Role type. Time in current salary. And many more.</p>
 
-<p>Cross-tabs answer <em>"Is this variable related to satisfaction?"</em> They do not answer <em>"How much does it actually matter, relative to everything else?"</em> With dozens of candidates all significant, there was no principled basis for deciding what to emphasize in the report.</p>
+<p>Cross-tabs answer <em>"Is this variable related to satisfaction?"</em> They do not answer <em>"How much does it actually matter, relative to everything else?"</em> With decades of Market Research experience, drivers analysis was the natural next step — the question has always been which variables actually move the needle, not merely which ones are statistically significant.</p>
 
 <div class="callout-card gold">
   <div class="callout-label">The core problem</div>
-  Significance is not importance. There should be a way to rank drivers by explanatory weight, not just detect their presence.
+  Significance is not importance. A variable can be statistically significant and still explain very little of the variance in satisfaction. The goal was to rank drivers by explanatory weight — not just detect their presence.
 </div>
 
 <!-- Solution -->
 <h2>  Solution: multi-model SHAP attribution</h2>
 
-<p>This analysis trained four models on the same dataset and applied SHAP (SHapley Additive exPlanations) to each. SHAP assigns every feature a contribution score for each prediction, i.e., how much did this variable move the satisfaction score, on average, across all respondents?</p>
+<p>This analysis trained five models on the same dataset and applied SHAP (SHapley Additive exPlanations) to each. SHAP assigns every feature a contribution score for each prediction — how much did this variable move the satisfaction score, on average, across all respondents? This is the same principle as individual-level attribution in traditional Market Research, now made computationally accessible through Python.</p>
 
-<p>A driver that shows high SHAP importance in a Random Forest <em>and</em> in a Lasso regression is an important driver. One that only appears in a linear model but not in the tree-based model is telling us something about the <em>nature</em> of the relationship (linear vs. non-linear) not just its existence.</p>
+<p>A driver that shows high SHAP importance in a Random Forest <em>and</em> in a Lasso regression is a genuine driver. One that only appears in a linear model but not in the tree-based model is telling us something about the <em>nature</em> of the relationship — linear vs. non-linear — not just its existence. LightGBM was run separately as a validation step on the top 20 features, confirming whether the driver ranking holds under a gradient boosting method with a completely different training mechanic.</p>
 
 <!-- Pipeline -->
 <h2>Pipeline at a glance</h2>
@@ -639,7 +639,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   *salary_broader simplifies the salary bands into Low, Mid, High
          │
          ▼
-<span class="hl">PART 1 · FOUR MODELS</span>
+<span class="hl">PART 1 · FIVE MODELS</span>
   ┌─────────────────────────┐  ┌───────────────────────────────┐
   │  Random Forest          │  │  Ordinal Logistic Regression  │
   │  · Gini impurity splits │  │  · 3 variants (raw / filtered │
@@ -651,22 +651,32 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   │  · StandardScaler       │  │  · alpha=0.1 penalty         │
   │  · Simple linear signal │  │  · Zeroes out weak drivers   │
   └─────────────────────────┘  └──────────────────────────────┘
+  ┌─────────────────────────────────────────────────────────┐
+  │  LightGBM (validation — separate notebook)              │
+  │  · Gradient boosting — sequential error correction      │
+  │  · No scaling needed — tree-based                       │
+  │  · Run on top 20 features from RF / LR / Lasso          │
+  │  · Confirms driver ranking under boosting mechanic      │
+  └─────────────────────────────────────────────────────────┘
          │
          ▼
 <span class="hl">PART 2 · SHAP ATTRIBUTION</span>
-  RF    ──►  TreeExplainer   ──►  bar + beeswarm plots
-  LR    ──►  LinearExplainer ──►  bar + beeswarm plots
-  Lasso ──►  LinearExplainer ──►  bar + beeswarm plots
+  RF         ──►  TreeExplainer   ──►  bar + beeswarm plots
+  LR         ──►  LinearExplainer ──►  bar + beeswarm plots
+  Lasso      ──►  LinearExplainer ──►  bar + beeswarm plots
+  LightGBM   ──►  TreeExplainer   ──►  bar + beeswarm plots
 <span class="dim">  (Ordinal Logistic skipped — KernelExplainer prohibitively slow
    at this feature count; OL coefficients used directly instead)</span>
          │
          ▼
 <span class="hl">shap_comparison.csv  ◄──  mean |SHAP| per feature × model</span>
+<span class="dim">                          RF · LightGBM · LR · Lasso</span>
          │
          ▼
 <span class="hl">PART 3 · CORRELATION CHECK</span>
   Full heatmap (all features)  +  small heatmap (top 8 drivers)
-  Result: no strong inter-correlations → drivers are independent
+  Within-group OHE correlations are expected and present.
+  No strong off-diagonal correlations between driver groups.
 </pre></div>
 
 <!-- The findings -->
@@ -694,6 +704,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 </div>
 
 <h3>Satisfaction by salary band</h3>
+<p style="font-size:0.78rem; color:var(--text-muted); margin-top:-0.2rem;">% scoring 8–10 out of 10 (satisfaction), except Career Shifters row which shows % scoring 1–5.</p>
 <div class="sat-bars">
   <div class="sat-row">
     <div class="sat-row-label">₱100k+</div>
@@ -716,18 +727,19 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
     <div class="sat-bar-bg"><div class="sat-bar-fill accent" style="width:72.9%">72.9% score 1–5</div></div>
   </div>
 </div>
-<p style="font-size:0.78rem; color:var(--text-muted); margin-top:-0.2rem;">% scoring 8–10 out of 10 (satisfaction), except Career Shifters row which shows % scoring 1–5.</p>
+
 
 <!-- Driver table -->
-<h2>The 8 key drivers — cross-model view</h2>
+<h2>The key drivers — cross-model view</h2>
 
-<p>The table below shows each driver's SHAP signal strength across the three models where SHAP was computed. Divergence between RF and LR tells us something about the <em>nature</em> of the relationship.</p>
+<p>The table below shows each driver's SHAP signal strength across the four models where SHAP was computed. LightGBM was run on the top 20 features only — features outside that set are marked —. Divergence between RF and LR tells us something about the <em>nature</em> of the relationship.</p>
 
 <table class="driver-table">
   <thead>
     <tr>
       <th>Driver</th>
       <th>RF</th>
+      <th>LightGBM</th>
       <th>LR</th>
       <th>Lasso</th>
       <th>Signal type</th>
@@ -735,14 +747,16 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   </thead>
   <tbody>
     <tr>
-      <td>salary_broader</td>
+      <td>careerstg · Career Shifter</td>
       <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-high">●</span> High</td>
+      <td><span class="dot-mid">●</span> Mid</td>
       <td><span class="dot-high">●</span> High</td>
       <td><span class="tag tag-univ">Universal</span></td>
     </tr>
     <tr>
-      <td>careerstg · Career Shifter</td>
+      <td>salary_broader</td>
+      <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-high">●</span> High</td>
@@ -750,48 +764,55 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
     </tr>
     <tr>
       <td>sizeteam</td>
-      <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-mid">●</span> Mid</td>
+      <td><span class="dot-high">●</span> High</td>
+      <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-mid">●</span> Mid</td>
       <td><span class="tag tag-nonlin">Non-linear</span></td>
     </tr>
     <tr>
       <td>sitework · WFH / Remote</td>
       <td><span class="dot-low">●</span> Low</td>
-      <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-mid">●</span> Mid</td>
+      <td><span class="dot-high">●</span> High</td>
+      <td><span class="dot-low">●</span> Low</td>
       <td><span class="tag tag-linear">Linear</span></td>
     </tr>
     <tr>
       <td>ai_work · Daily</td>
       <td><span class="dot-low">●</span> Low</td>
-      <td><span class="dot-high">●</span> High</td>
       <td><span class="dot-mid">●</span> Mid</td>
+      <td><span class="dot-high">●</span> High</td>
+      <td><span class="dot-low">●</span> Low</td>
       <td><span class="tag tag-linear">Linear</span></td>
     </tr>
     <tr>
       <td>ai_study · Daily</td>
       <td><span class="dot-mid">●</span> Mid</td>
       <td><span class="dot-mid">●</span> Mid</td>
-      <td><span class="dot-mid">●</span> Mid</td>
-      <td><span class="tag tag-nonlin">Consistent</span></td>
+      <td><span class="dot-low">●</span> Low</td>
+      <td><span class="dot-low">●</span> Low</td>
+      <td><span class="tag tag-nonlin">Tree-led</span></td>
     </tr>
     <tr>
       <td>datarole · Admin &amp; Support</td>
+      <td><span class="dot-low">●</span> Low</td>
       <td><span class="dot-mid">●</span> Mid</td>
-      <td><span class="dot-mid">●</span> Mid</td>
-      <td><span class="dot-high">●</span> High</td>
-      <td><span class="tag tag-nonlin">Lasso-led</span></td>
+      <td><span class="dot-low">●</span> Low</td>
+      <td><span class="dot-low">●</span> Low</td>
+      <td><span class="tag tag-nonlin">Tree-led</span></td>
     </tr>
     <tr>
       <td>how_long_in_salary</td>
+      <td><span class="dot-low">●</span> Low</td>
+      <td><span class="dot-mid">●</span> Mid</td>
       <td><span class="dot-mid">●</span> Mid</td>
       <td><span class="dot-low">●</span> Low</td>
-      <td><span class="dot-low">●</span> Low</td>
-      <td><span class="tag tag-nonlin">RF-specific</span></td>
+      <td><span class="tag tag-nonlin">Moderate</span></td>
     </tr>
   </tbody>
 </table>
+<p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.3rem;">● High = mean |SHAP| ≥ 0.30 · ◐ Mid = 0.08–0.29 · ● Low = &lt; 0.08 · — = not in top 20 tested by LightGBM</p>
 
 <!-- Beeswarm trigger buttons -->
 <p style="margin-top:1.2rem; font-size:0.88rem; color:var(--text-muted);">Click to view the SHAP beeswarm plot for each model. Each dot is one respondent, colored by feature value, positioned by its SHAP contribution to satisfaction.</p>
@@ -799,45 +820,56 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
   <button class="btn btn-secondary" onclick="openImage('rf')">View RF beeswarm</button>
   <button class="btn btn-secondary" onclick="openImage('lr')">View LR beeswarm</button>
   <button class="btn btn-secondary" onclick="openImage('lasso')">View Lasso beeswarm</button>
+  <button class="btn btn-secondary" onclick="openImage('lgbm')">View LightGBM beeswarm</button>
 </div>
 
 <!-- Key divergence -->
 <h2>The model divergence also gives insights</h2>
 
 <div class="callout-card sky">
+  <div class="callout-label">Insight · Career Shifter and Salary — universal across all five models</div>
+  <strong>careerstg_Career Shifter</strong> and <strong>salary_broader</strong>(grouped salary bands) are the only two drivers that score high across all four SHAP models — two tree-based methods with different mechanics (RF bagging vs. LightGBM boosting) and two linear methods with different penalties. When independent models converge on the same findings, those are  clear drivers.
+</div>
+
+<div class="callout-card sky">
   <div class="callout-label">Insight · Remote work</div>
-  <strong>sitework_WFH</strong> scores 0.62 in LR SHAP but only 0.09 in RF SHAP. This is because remote work has a clear <em>linear</em> relationship with satisfaction — the more remote, the higher the satisfaction, consistently. Tree-based models find more predictive power in non-linear feature interactions elsewhere and do not prioritize a simple linear trend. Running only RF would have buried this driver. Running only LR would have given it more importance vs. non-linear drivers.
+  <strong>sitework_WFH</strong>(work from home) scores 0.62 in LR SHAP but only 0.09 in RF and 0.18 in LightGBM. Remote work has a clear <em>linear</em> relationship with satisfaction — the more remote, the higher the satisfaction, consistently across the whole sample. Tree-based models find more predictive power in non-linear feature interactions and do not prioritize a simple linear trend. Running only RF or LightGBM would have missed this driver entirely. Running only LR would have over-emphasized it over other drivers.
 </div>
 
 <div class="callout-card sky">
   <div class="callout-label">Insight · AI use at work</div>
-  A similar pattern appears for <strong>ai_work_Daily</strong>. High-satisfaction respondents are 20 percentage points more likely to use AI tools daily at work than low-satisfaction respondents (67.1% vs. 47.4%). The linear models detect this cleanly. The RF finds the relationship but prioritizes salary and career stage as stronger splits. This could be because AI daily use at work may be a proxy for workplace culture.  Environments that encourage AI adoption may indirectly drive higher satisfaction, not the usage of AI per se.
+  A similar pattern appears for <strong>ai_work_Daily</strong>. High-satisfaction respondents are 20 percentage points more likely to use AI tools daily at work than low-satisfaction respondents (67.1% vs. 47.4%). The linear models detect this cleanly. Tree-based models prioritize salary and career stage as stronger splits. AI daily use at work may be a proxy for workplace culture — environments that encourage AI adoption may indirectly drive higher satisfaction, not the usage of AI per se.
 </div>
 
 <!-- Correlation check -->
 <h2>Are the 8 drivers independent?</h2>
 
-<p>A correlation heatmap of the 8 key drivers shows no strong inter-correlations. They are pulling in different directions on satisfaction — not proxies for each other. This matters for our whole summary: each driver earned its place independently and can be discussed as a separate lever.</p>
+<p>A correlation heatmap of the key drivers shows within-group OHE (one-hot encoding) correlations.  This is expected. No strong correlations exist in the off-diagonal space between driver groups.  Each driver earned its place independently and can be discussed as a separate lever.</p>
 
 <hr class="section-divider">
 
 <!-- What's in the full report -->
 <h2>What's in the full report</h2>
 
-<p>The <a href="summary.html" target="_blank">DEP Survey 2026 Summary</a> covers the complete satisfaction analysis, plus findings for four audience segments — Students &amp; Job Seekers, Career Shifters, Data Professionals, and DEP Community Leaders. This satisfaction drivers analysis links to the deepdive README on GitHub where the full pipeline code and SHAP output files live.</p>
-
-<ul>
-  <li><strong>Salary progression tips</strong> — which tools and certifications correlate with the ₱100k+ ceiling</li>
-  <li><strong>Career Shifter roadmap</strong> — why this segment shows the most structural dissatisfaction and what changes it</li>
-  <li><strong>AI adoption patterns</strong> — daily AI use by segment, tool preferences, and the emerging differentiation edge</li>
-  <li><strong>Team size and remote work</strong> — what the non-linear patterns reveal about workplace structure</li>
-  <li><strong>Self-paced learning blueprint</strong> — the DEP program architecture with the highest probability of completion</li>
-</ul>
+<p>The <a href="https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/summary.html" target="_blank">DEP Survey 2026 Summary</a> covers the complete survey analysis, plus findings for four audience segments — Students &amp; Job Seekers, Career Shifters, Data Professionals, and DEP Community Leaders. This satisfaction drivers analysis links to the deepdive README on GitHub where the full pipeline code and SHAP output files are uploaded.</p>
 
 <div class="callout-card dark">
   <div class="callout-label">Also available</div>
-  A Tableau Public dashboard with deeper crosstab filters by role, salary band, segment, and region is available separately. A Drivers tab will be added in a future update. The plotly HTML dashboard covers the same descriptive depth with Python-native interactivity.
+The plotly HTML dashboards are available here: <a href="https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/about_us.html " target="_blank">DEP Survey 2026 dashboards</a>  
 </div>
+
+<!-- Further reading -->
+<h2>Further reading</h2>
+
+<p>This survey captures what the data community itself reported. It cannot capture the full scope of satisfaction drivers — autonomy, advancement opportunities, psychological safety, and management quality are equally real but harder to measure in a structured survey. The literature below covers these dimensions well.</p>
+
+<ul>
+  <li><a href="https://www.bain.com/insights/the-chemistry-of-engagement-ceo-forum/" target="_blank">Bain — The chemistry of engagement</a>: strong sense of purpose, ample autonomy, opportunities for growth, and a sense of affiliation as the core ingredients of employee engagement.</li>
+  <li><a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/great-attrition-or-great-attraction-the-choice-is-yours" target="_blank">McKinsey — Great Attrition or Great Attraction?</a>: what organizations can do to attract and retain talent beyond compensation.</li>
+  <li><a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-boss-factor-making-the-world-a-better-place-through-workplace-relationships" target="_blank">McKinsey — The boss factor</a>: how workplace relationships, especially with direct managers, shape satisfaction and retention.</li>
+  <li><a href="https://www.bcg.com/publications/2024/psychological-safety-levels-playing-field-for-employees" target="_blank">BCG — Psychological safety</a>: how psychological safety levels the playing field and drives performance across diverse teams.</li>
+  <li><a href="https://www.bcg.com/publications/2023/delivering-top-notch-people-performance" target="_blank">BCG — People performance</a>: digital skill-building and work-life balance as levers for top-notch people performance.</li>
+</ul>
 
 <hr class="section-divider">
 
@@ -893,7 +925,8 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 const imagePlots = {
   rf:    { title: "SHAP Beeswarm — Random Forest",     url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_rf_beeswarm.png" },
   lr:    { title: "SHAP Beeswarm — Linear Regression", url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_lr_beeswarm.png" },
-  lasso: { title: "SHAP Beeswarm — Lasso Regression",  url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_lasso_beeswarm.png" }
+  lasso: { title: "SHAP Beeswarm — Lasso Regression",  url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_lasso_beeswarm.png" },
+  lgbm:  { title: "SHAP Beeswarm — LightGBM (top 20 features)", url: "https://raw.githubusercontent.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/main/deepdive/assets/shap_lgbm_beeswarm.png" }
 };
 
 function openImage(key) {
