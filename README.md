@@ -12,6 +12,8 @@ For backend cleaning and data processing after raw data download, check out the 
 
 For the Tableau report, click [here.](https://public.tableau.com/views/DEPSurvey2026/OURWORK)
 
+![Report preview](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/tableau/tableau2025.gif)
+
 **Analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
 
 ---
