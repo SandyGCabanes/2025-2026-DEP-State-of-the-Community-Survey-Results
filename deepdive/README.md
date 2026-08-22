@@ -15,7 +15,7 @@ But we need to know *"How much does it actually matter, relative to everything e
 
 Five models were trained on the same survey data.  **SHAP (SHapley Additive exPlanations)** was used to extract each model's view of driver importance. Agreement across models signals a genuine driver. Disagreement reveals where the relationship is linear, non-linear, or model-dependent.
 
-LightGBM was run separately as a validation step on the top 20 features already identified by RF, LR, and Lasso — asking whether the driver ranking holds under a gradient boosting method with a completely different training mechanic. It did.
+LightGBM was run separately as a validation step on the top 20 features already identified by RF, LR, and Lasso. The goal was to determine whether the driver ranking holds under a gradient boosting method with a completely different training mechanic. It did.
 
 The SHAP comparison table produced a short, defensible list of **2 main drivers and 6 others**. The top 2, i.e., salary and career stage, were consistent across all five models and were the primary findings in the summary report.
 
@@ -141,7 +141,7 @@ df_single_with_grps.csv
 
 ● High = SHAP ≥ 0.30 · ◐ Mid = 0.08–0.29 · ◯ Low = < 0.08 · — = not in top 20 tested
 
-**Key finding — careerstg and salary are universal:** Both score high across all four SHAP models — two tree-based methods with different mechanics (bagging vs boosting) and two linear methods with different penalties. That level of cross-method agreement is the strongest possible signal in this analysis.
+**Key finding — careerstg and salary are universal:** Both score high across all four SHAP models, using two tree-based methods with different mechanics (bagging vs boosting) and two linear methods with different penalties. That level of cross-method agreement is the strongest possible signal in this analysis.
 
 **Key finding — model divergence on sitework_WFH:** Scores 0.62 in LR SHAP but only 0.09 in RF and 0.18 in LightGBM. Remote work has a clear *linear* relationship with satisfaction, consistent across the whole sample. The tree-based models deprioritize remote work because salary and career stage create larger splits first. Running only one model would have either over-emphasized or missed this driver.
 
