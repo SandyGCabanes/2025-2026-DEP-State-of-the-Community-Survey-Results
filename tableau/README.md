@@ -2,7 +2,7 @@
 
 Click on the image below for the Tableau Public report.
 
-[![Tableau report here](ourtools_thumb.PNG)](https://public.tableau.com/app/profile/sandy.g.cabanes/viz/DEPSurvey2026/PIPELINETOOLS)
+[![Tableau report here](tableau2025.gif)](https://public.tableau.com/app/profile/sandy.g.cabanes/viz/DEPSurvey2026/PIPELINETOOLS)
 
 Screenshots of the report below.
 
