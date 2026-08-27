@@ -10,9 +10,17 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 
 For backend cleaning and data processing after raw data download, check out the [python data pipeline here](https://github.com/SandyGCabanes/DEP-Survey-Data-Pipeline).
 
-For the Tableau report, click [here.](https://public.tableau.com/views/DEPSurvey2026/OURWORK)
+For the publicly available Tableau report, click [here.](https://public.tableau.com/views/DEPSurvey2026/OURWORK)
 
 ![Report preview](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/tableau/tableau2025.gif)
+
+<br><br>
+
+For the advanced analysis using machine learning and SHAP readme, click [here](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/tree/main/deepdive#readme).
+<br>
+
+[![SHAP analysis preview](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/assets/shap_2s.gif)](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/assets/shap_beeswarm_3s.gif)
+
 
 **Analyst and report developer:** [Sandy G Cabanes](https://www.linkedin.com/in/sandygcabanes)
 
