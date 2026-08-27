@@ -1,11 +1,11 @@
 # Satisfaction Drivers Analysis
-### DEP Annual Survey 2026 · Philippine Data Community · n = 1,861
+### DEP Annual Survey 2026 · Philippine Data Community · n = 808 for job satisfaction
 
 ---
 
 ## Problem: Too Many Significant Findings
 
-Cross-tabulating **job satisfaction** (Low / Mid / High) against every individual survey question produced a flood of statistically significant results. Too many variables showed some difference across satisfaction groups — salary band, work setup, career stage, AI tool usage, team size, and more.
+Cross-tabulating **job satisfaction** (Low / Mid / High) against every individual survey question produced a flood of statistically significant results. Too many variables showed some difference across satisfaction groups: salary band, work setup, career stage, AI tool usage, team size, and more.
 
 But we need to know *"How much does it actually matter, relative to everything else?"* The crosstab approach only answers *"Is this variable related to satisfaction?"*  Using deep Market Research experience, drivers analysis was the natural next step to answer which variables move the needle, not just the significant variables.
 
@@ -18,6 +18,11 @@ Five models were trained on the same survey data.  **SHAP (SHapley Additive exPl
 LightGBM was run separately as a validation step on the top 20 features already identified by RF, LR, and Lasso. The goal was to determine whether the driver ranking holds under a gradient boosting method with a completely different training mechanic. It did.
 
 The SHAP comparison table produced a short, defensible list of **2 main drivers and 6 others**. The top 2, i.e., salary and career stage, were consistent across all five models and were the primary findings in the summary report.
+
+---
+
+
+![Workflow](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/assets/workflow.jpg)
 
 ---
 
@@ -121,8 +126,12 @@ df_single_with_grps.csv
             │  · how_long_in_salary │
             └───────────────────────┘
 ```
+[Satisfaction drivers analysis RF OLR OLS Lasso notebook](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/satisfaction_drivers_analysis.ipynb)
+
+[Satisfaction drivers analysis LGBM notebook](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/satisfaction_drivers_lgbm.ipynb)
 
 ---
+
 
 ## Key Findings from SHAP Comparison
 
@@ -145,7 +154,7 @@ df_single_with_grps.csv
 
 **Key finding — model divergence on sitework_WFH:** Scores 0.62 in LR SHAP but only 0.09 in RF and 0.18 in LightGBM. Remote work has a clear *linear* relationship with satisfaction, consistent across the whole sample. The tree-based models deprioritize remote work because salary and career stage create larger splits first. Running only one model would have either over-emphasized or missed this driver.
 
-**LightGBM run separately:** Windows DLL conflict with Python 3.11 requires LightGBM to be imported before pandas and numpy. LGBM analysis is available in a dedicated notebook (`satisfaction_drivers_lgbm.ipynb`) on the top 20 features from the main pipeline. Results are then loaded from pkl for the comparison table.
+**LightGBM run separately:** Windows DLL conflict with Python 3.11 requires LightGBM to be imported before pandas and numpy. LGBM analysis is available in a dedicated notebook [satisfaction_drivers_lgbm.ipynb](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/satisfaction_drivers_lgbm.ipynb) on the top 20 features from the main pipeline. Results are then loaded from pkl for the comparison table.
 
 **SHAP for OL skipped:** Explainer not yet supported for tree/linear explainers on mord models. [Read about mord models here.](https://pythonhosted.org/mord/) KernelExplainer takes too much time and computing power to run. OL coefficients from `ol_impact2.csv` (scaled + filtered) used directly for ranking.
 
