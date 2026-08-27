@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Drives Job Satisfaction in the Data Engineering Pilipinas Community? | Sandy G. Cabanes</title>
-  <meta name="description" content="Cross-tabs gave us too many significant findings. We ran 4 ML models and used SHAP to find what actually drives satisfaction. DEP Survey 2026 · n=1,861.">
+  <meta name="description" content="Cross-tabs gave us too many significant findings. We ran 4 ML models and used SHAP to find what actually drives satisfaction. DEP Survey 2026 · n=808.">
   <meta name="author" content="Sandy G. Cabanes">
   <meta property="og:title" content="What Drives Job Satisfaction in the Data Engineering Pilipinas Community?">
   <meta property="og:description" content="Cross-tabs gave too many significant findings. This analysis used 4 ML models + SHAP to distill the real drivers. DEP Survey 2026.">
@@ -171,7 +171,7 @@ body {
 
 .btn-ghost {
   background: transparent;
-  color: var(--sky-light);
+  color: var(--gold);
   font-size: 0.73rem;
   font-weight: 400;
   padding: 0.4rem 0.7rem;
@@ -591,10 +591,10 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
     <a class="btn btn-primary" href="https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/summary.html" target="_blank">
        Full Summary DEP SURVEY 2026
     </a>
-    <a class="btn btn-ghost" href="https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/tree/main/deepdive#readme" target="_blank">
+    <a class="btn btn-primary" href="https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/tree/main/deepdive#readme" target="_blank">
       GitHub · Drivers README
     </a>
-    <a class="btn btn-ghost" href="https://public.tableau.com/app/profile/sandy.g.cabanes/viz/DEPSurvey2026/OURWORK" target="_blank">
+    <a class="btn btn-primary" href="https://public.tableau.com/app/profile/sandy.g.cabanes/viz/DEPSurvey2026/OURWORK" target="_blank">
       Tableau dashboard
     </a>
 
@@ -610,11 +610,11 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 
 <p>The survey cross-tab compared three satisfaction groups: Low (1–4), Mid (5–7), and High (8–10), against every individual question in the survey. A lot of variables showed a statistically significant difference somewhere. Salary band. Work setup. Career stage. AI tool usage. Team size. Role type. Time in current salary. And many more.</p>
 
-<p>Cross-tabs answer <em>"Is this variable related to satisfaction?"</em> They do not answer <em>"How much does it actually matter, relative to everything else?"</em> Using extensive Market Research experience, drivers analysis was the natural next step to surface key drivers.</p>
+<p>Cross-tabs answer <em>"Is this variable related to satisfaction?"</em> They do not answer <em>"How much does it actually matter, relative to everything else?"</em> Using deep Market Research experience, drivers analysis was the natural next step to surface key drivers.</p>
 
 <div class="callout-card gold">
   <div class="callout-label">The core problem</div>
-  Significance is not importance. A variable can be statistically significant and still explain very little of the variance in satisfaction. The goal was to rank drivers by explanatory weight — not just detect their presence.
+  Significance is not importance. A variable can be statistically significant and still explain very little of the variance in satisfaction. The goal was to rank drivers by explanatory weight, not just detect their presence.
 </div>
 
 <!-- Solution -->
@@ -642,7 +642,7 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <span class="hl">PART 1 · FIVE MODELS</span>
   ┌─────────────────────────┐  ┌───────────────────────────────┐
   │  Random Forest          │  │  Ordinal Logistic Regression  │
-  │  · Gini impurity splits │  │  · 3 variants (raw / filtered │
+  │  · RF Regressor         │  │  · 3 variants (raw / filtered │
   │  · No scaling needed    │  │    / scaled+filtered)         │
   │  · Non-linear signal    │  │  · n&lt;30 columns dropped       │
   └─────────────────────────┘  └───────────────────────────────┘
@@ -817,10 +817,10 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <!-- Beeswarm trigger buttons -->
 <p style="margin-top:1.2rem; font-size:0.88rem; color:var(--text-muted);">Click to view the SHAP beeswarm plot for each model. Each dot is one respondent, colored by feature value, positioned by its SHAP contribution to satisfaction.</p>
 <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin:0.8rem 0 1.6rem;">
-  <button class="btn btn-secondary" onclick="openImage('rf')">View RF beeswarm</button>
-  <button class="btn btn-secondary" onclick="openImage('lr')">View LR beeswarm</button>
-  <button class="btn btn-secondary" onclick="openImage('lasso')">View Lasso beeswarm</button>
-  <button class="btn btn-secondary" onclick="openImage('lgbm')">View LightGBM beeswarm</button>
+  <button class="btn btn-primary" onclick="openImage('rf')">View RF beeswarm</button>
+  <button class="btn btn-primary" onclick="openImage('lr')">View LR beeswarm</button>
+  <button class="btn btn-primary" onclick="openImage('lasso')">View Lasso beeswarm</button>
+  <button class="btn btn-primary" onclick="openImage('lgbm')">View LightGBM beeswarm</button>
 </div>
 
 <!-- Key divergence -->
@@ -854,8 +854,8 @@ table.driver-table tr:hover td { background: var(--cream-dark); }
 <p>The <a href="https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/summary.html" target="_blank">DEP Survey 2026 Summary</a> covers the complete survey analysis, plus findings for four audience segments — Students &amp; Job Seekers, Career Shifters, Data Professionals, and DEP Community Leaders. This satisfaction drivers analysis links to the deepdive README on GitHub where the full pipeline code and SHAP output files are uploaded.</p>
 
 <div class="callout-card dark">
-  <div class="callout-label">Also available</div>
-The plotly HTML dashboards are available here: <a href="https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/about_us.html " target="_blank">DEP Survey 2026 dashboards</a>  
+  <div class="callout-label">Also available:  Webpage Versions of the Dashboards</div>
+Though the Tableau Public versions are accessible via the link above, there are also shareable Webpage versions of the dashboards here: <a href="https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/about_us.html " target="_blank">DEP Survey 2026 dashboards</a>  
 </div>
 
 <!-- Further reading -->
