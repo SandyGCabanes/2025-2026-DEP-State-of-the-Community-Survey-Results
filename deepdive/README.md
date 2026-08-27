@@ -46,11 +46,11 @@ df_single_with_grps.csv
 │  ┌──────────────────────────┐  ┌──────────────────────────────┐ │
 │  │  1. Random Forest (RF)   │  │  2. Ordinal Logistic (OL)    │ │
 │  │  · No scaling needed     │  │  · Raw X  →  ol_impact0      │ │
-│  │  · Gini impurity splits  │  │  · Filtered X (n≥30)         │ │
+│  │  · RF Regressor          │  │  · Filtered X (n≥30)         │ │
 │  │  · Captures non-linear   │  │    →  ol_impact1             │ │
 │  │    interactions          │  │  · Scaled + Filtered X       │ │
 │  │  → rf_impact.csv         │  │    →  ol_impact2             │ │
-│  │  → model_rf.pkl          │  │  → model_ol0/1/2.pkl         │ │
+│  │  → model_rf.pkl          │  │  → final model_ol2.pkl       │ │
 │  └──────────────────────────┘  └──────────────────────────────┘ │
 │                                                                 │
 │  ┌──────────────────────────┐  ┌──────────────────────────────┐ │
