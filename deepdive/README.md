@@ -1,6 +1,6 @@
 # Satisfaction Drivers Analysis
 ### DEP Annual Survey 2026 · Philippine Data Community · n = 808 for job satisfaction
-
+### [For a shareable webpage version of this summary, click here](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/satisfaction_drivers.html)
 ---
 
 ## Problem: Too Many Significant Findings
