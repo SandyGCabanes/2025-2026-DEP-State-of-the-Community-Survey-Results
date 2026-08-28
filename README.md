@@ -8,7 +8,7 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 
 [Report section](/report) includes all the excel tables with crosstabs and round-robin significance testing at 95% c.l.
 
-For backend cleaning and data processing after raw data download, check out the [python data pipeline here](https://github.com/SandyGCabanes/DEP-Survey-Data-Pipeline).
+For backend cleaning and data processing after raw data download, check out the separate github repo for [python data pipeline here](https://github.com/SandyGCabanes/DEP-Survey-Data-Pipeline).
 
 For the publicly available Tableau report, click [here.](https://public.tableau.com/views/DEPSurvey2026/OURWORK)
 
