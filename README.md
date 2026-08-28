@@ -6,7 +6,12 @@ End-to-end survey analysis and interactive report for [Data Engineering Pilipina
 
 [Deepdive section](/deepdive#readme) includes machine learning methods to derive key drivers of job satisfaction.  
 
-[Report section](/report) includes all the excel tables with crosstabs and round-robin significance testing at 95% c.l.
+[Report section](/report) includes 
+  - all the excel tables with crosstabs and round-robin significance testing at 95% c.l.
+  - [google slides used during the online presentation](https://docs.google.com/presentation/d/1o6-eqyHcwdATKFpuO75ukcj3XtycBx-pqI9RbshBpy4/edit?usp=drive_link)
+  - click on thumbnail below to see the online presentation recording in youtube<br>
+  - [![youtube recording of the presentation](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/report/youtube_thumb%20(35pct).png)](https://youtu.be/NOr1Nt1daEY)
+    
 
 For backend cleaning and data processing after raw data download, check out the separate github repo for [python data pipeline here](https://github.com/SandyGCabanes/DEP-Survey-Data-Pipeline).
 
