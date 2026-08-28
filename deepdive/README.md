@@ -1,6 +1,7 @@
 # Satisfaction Drivers Analysis
+## Machine Learning Application: Drivers of Job Satisfaction Using Survey Data
 ### DEP Annual Survey 2026 · Philippine Data Community · n = 808 for job satisfaction
-### [For a shareable webpage version of this summary, click here](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/satisfaction_drivers.html)
+### [Webpage version of summary here](https://sandygcabanes.github.io/2025-2026-DEP-State-of-the-Community-Survey-Results/web_report_htmls/satisfaction_drivers.html)
 ---
 
 ## Problem: Too Many Significant Findings
@@ -150,9 +151,9 @@ df_single_with_grps.csv
 
 ● High = SHAP ≥ 0.30 · ◐ Mid = 0.08–0.29 · ◯ Low = < 0.08 · — = not in top 20 tested
 
-**Key finding — careerstg and salary are universal:** Both score high across all four SHAP models, using two tree-based methods with different mechanics (bagging vs boosting) and two linear methods with different penalties. That level of cross-method agreement is the strongest possible signal in this analysis.
+**Key finding - careerstg and salary are universal:** Both score high across all four SHAP models, using two tree-based methods with different mechanics (bagging vs boosting) and two linear methods with different penalties. That level of cross-method agreement is the strongest possible signal in this analysis.
 
-**Key finding — model divergence on sitework_WFH:** Scores 0.62 in LR SHAP but only 0.09 in RF and 0.18 in LightGBM. Remote work has a clear *linear* relationship with satisfaction, consistent across the whole sample. The tree-based models deprioritize remote work because salary and career stage create larger splits first. Running only one model would have either over-emphasized or missed this driver.
+**Key finding - model divergence on sitework_WFH:** Scores 0.62 in LR SHAP but only 0.09 in RF and 0.18 in LightGBM. Remote work has a clear *linear* relationship with satisfaction, consistent across the whole sample. The tree-based models deprioritize remote work because salary and career stage create larger splits first. Running only one model would have either over-emphasized or missed this driver.
 
 **LightGBM run separately:** Windows DLL conflict with Python 3.11 requires LightGBM to be imported before pandas and numpy. LGBM analysis is available in a dedicated notebook [satisfaction_drivers_lgbm.ipynb](https://github.com/SandyGCabanes/2025-2026-DEP-State-of-the-Community-Survey-Results/blob/main/deepdive/satisfaction_drivers_lgbm.ipynb) on the top 20 features from the main pipeline. Results are then loaded from pkl for the comparison table.
 
